@@ -10,6 +10,7 @@ export default function Component() {
     <Image
       src={titleImg}
       alt="Chaii Studio"
+      placeholder="blur"
     />
     </main>
   )
