@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Chaii Studio",
-  description: "From design to deployment",
+  description: "From vision to deployment",
 };
 
 export default function RootLayout({
