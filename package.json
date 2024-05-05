@@ -1,8 +1,8 @@
 {
   "name": "chaii",
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@chaii/eslint-config": "*",
+    "@chaii/typescript-config": "*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
