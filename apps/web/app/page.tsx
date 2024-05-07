@@ -9,7 +9,9 @@ export default function Component() {
         src={titleImg}
         width={100}
         height={100}
+        placeholder="blur"
         alt="Chaii founders"
+        priority
         style={{
           objectFit: "cover",
           objectPosition: 0,

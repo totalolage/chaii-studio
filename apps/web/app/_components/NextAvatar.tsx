@@ -10,6 +10,7 @@ type Props = Omit<ImageProps, "fill">;
 
 export default function NextAvatar(props: Props) {
   const imageProps = getImageProps({ width: 40, height: 40, ...props }).props;
+  console.log(imageProps);
 
   return (
     <Avatar
@@ -20,7 +21,7 @@ export default function NextAvatar(props: Props) {
         {...omit(["blurWidth", "blurHeight", "style"], imageProps)}
         style={pick(["objectFit", "objectPosition"], imageProps.style)}
       />
-      {imageProps.placeholder === "blur" && (
+      {props.placeholder === "blur" && (
         <AvatarFallback style={imageProps.style} />
       )}
     </Avatar>
