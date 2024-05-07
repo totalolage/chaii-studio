@@ -22,6 +22,7 @@
     "turbo": "latest"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "sharp": "^0.33.3"
   }
 }

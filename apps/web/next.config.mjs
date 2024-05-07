@@ -3,4 +3,4 @@ const nextConfig = {
   transpilePackages: ["@chaii/ui"],
 };
 
-export default nextConfi
+export default nextConfig;

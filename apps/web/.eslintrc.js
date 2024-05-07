@@ -8,4 +8,4 @@ const eslintConfig = {
   },
 };
 
-export default eslintConfig;
+module.exports = eslintConfig;
