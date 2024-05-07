@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Syne } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
+import { Providers } from "./Providers";
 
 const sans = Syne({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       lang="en"
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
-      {children}
+      <Providers>{children}</Providers>
     </html>
   );
 }
