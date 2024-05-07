@@ -7,11 +7,12 @@
     "config": "tailwind.config.ts",
     "css": "@chaii/tailwind-config/global.css",
     "baseColor": "slate",
-    "cssVariables": true
+    "cssVariables": true,
+    "prefix": ""
   },
   "aliases": {
-    "components": "~/components",
-    "ui": "~/components",
-    "utils": "~/lib/utils"
+    "components": "@ui/components",
+    "ui": "@ui/components",
+    "utils": "@ui/lib/utils"
   }
 }

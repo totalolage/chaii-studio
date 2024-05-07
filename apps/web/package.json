@@ -6,10 +6,11 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@chaii/ui": "*",
+    "@chaii/ui": "workspace:*",
     "next": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,9 +18,9 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.1",
-    "@chaii/eslint-config": "*",
-    "@chaii/typescript-config": "*",
-    "@chaii/tailwind-config": "*",
+    "@chaii/eslint-config": "workspace:*",
+    "@chaii/typescript-config": "workspace:*",
+    "@chaii/tailwind-config": "workspace:*",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",

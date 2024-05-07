@@ -10,7 +10,6 @@ type Props = Omit<ImageProps, "fill">;
 
 export default function NextAvatar(props: Props) {
   const imageProps = getImageProps({ width: 40, height: 40, ...props }).props;
-  console.log(imageProps);
 
   return (
     <Avatar

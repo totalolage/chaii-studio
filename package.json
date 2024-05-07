@@ -2,6 +2,7 @@
   "name": "chaii",
   "packageManager": "bun@1.0.1",
   "private": true,
+  "license": "GPL-3.0",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -14,13 +15,13 @@
     "ui:add": "bun --cwd=packages/ui run add"
   },
   "devDependencies": {
-    "@chaii/eslint-config": "*",
-    "@chaii/typescript-config": "*",
+    "@chaii/eslint-config": "workspace:*",
+    "@chaii/typescript-config": "workspace:*",
+    "@types/lodash": "^4.17.1",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
   "dependencies": {
-    "@types/lodash": "^4.17.1",
     "lodash": "^4.17.21"
   }
 }
