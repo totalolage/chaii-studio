@@ -5,14 +5,13 @@
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.ts",
-    "css": "src/globals.css",
+    "css": "@chaii/tailwind-config/global.css",
     "baseColor": "slate",
-    "cssVariables": true,
-    "prefix": ""
+    "cssVariables": true
   },
   "aliases": {
-    "components": "@ui/components",
-    "ui": "@ui/components",
-    "utils": "@ui/lib/utils"
+    "components": "~/components",
+    "ui": "~/components",
+    "utils": "~/lib/utils"
   }
 }
