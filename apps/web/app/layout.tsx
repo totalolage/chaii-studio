@@ -2,9 +2,27 @@ import "normalize.css";
 import "@chaii/tailwind-config/globals.css";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne } from "next/font/google";
+import { PropsWithChildren } from "react";
+import { cn } from "@chaii/ui/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Syne({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const serif = Syne({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-serif",
+});
+
+const mono = Syne({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Chaii Studio",
@@ -13,12 +31,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+}: PropsWithChildren) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={cn(sans.variable, serif.variable, mono.variable)}>
+      <body>{children}</body>
     </html>
   );
 }

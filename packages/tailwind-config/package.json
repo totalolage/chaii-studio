@@ -4,13 +4,16 @@
   "private": true,
   "files": [
     "postcss.config.js",
-    "tailwind.config.ts",
-    "globals.css"
+    "globals.css",
+    "ui.ts",
+    "next.ts",
+    "base.ts"
   ],
   "exports": {
     "./globals.css": "./globals.css",
     "./postcss.config": "./postcss.config.js",
-    "./tailwind.config": "./tailwind.config.ts"
+    "./ui": "./ui.ts",
+    "./next": "./next.ts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
@@ -22,6 +25,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@chaii/typescript-config": "*",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",

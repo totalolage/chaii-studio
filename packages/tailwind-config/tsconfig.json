@@ -1,0 +1,3 @@
+{
+  "extends": "@chaii/typescript-config/config.json"
+}

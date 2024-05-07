@@ -1,11 +1,10 @@
 import titleImg from "./2024-05-05-010612_002.jpeg";
-import NextAvatar from "./_components/NextAvatar";
+import NextAvatar from "~/_components/NextAvatar";
 
 export default function Component() {
-
   return (
     <main>
-      <h1>Chaii Studio :)</h1>
+      <h1 className="font-bold">Chaii Studio :)</h1>
       <NextAvatar 
         src={titleImg}
         width={100}
