@@ -11,6 +11,7 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "bun --cwd=packages/ui run add"
   },
@@ -22,6 +23,8 @@
     "turbo": "latest"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.3",
+    "@tailwindcss/container-queries": "^0.1.1",
     "lodash": "^4.17.21",
     "sharp": "^0.33.3"
   }

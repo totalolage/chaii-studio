@@ -12,8 +12,7 @@
   "exports": {
     "./globals.css": "./globals.css",
     "./postcss.config": "./postcss.config.js",
-    "./ui": "./ui.ts",
-    "./next": "./next.ts"
+    "./tailwind.config": "./tailwind.config.ts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",

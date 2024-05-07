@@ -1,1 +1,18 @@
-export * from "@chaii/tailwind-config/next";
+import tailwindUiConfig from "@chaii/tailwind-config/tailwind.config";
+import { Config } from "tailwindcss";
+import { merge } from "lodash/fp";
+
+const config = merge(tailwindUiConfig, {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        serif: ["var(--font-serif)"],
+        mono: ["var(--font-mono)"],
+      },
+    },
+  },
+}) satisfies Config;
+
+export default config;
+

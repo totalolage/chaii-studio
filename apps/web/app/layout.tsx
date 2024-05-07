@@ -29,12 +29,13 @@ export const metadata: Metadata = {
   description: "From vision to deployment",
 };
 
-export default function RootLayout({
-  children,
-}: PropsWithChildren) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={cn(sans.variable, serif.variable, mono.variable)}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={cn(sans.variable, serif.variable, mono.variable)}
+    >
+      {children}
     </html>
   );
 }
