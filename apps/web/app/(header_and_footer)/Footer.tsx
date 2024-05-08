@@ -19,7 +19,7 @@ export default function Footer() {
             </p>
           </TooltipTrigger>
           <TooltipContent>
-            just kidding, intellectual property is a spook
+            just kidding, intellectual property is a farce
           </TooltipContent>
         </Tooltip>
       </div>
