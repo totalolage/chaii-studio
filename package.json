@@ -1,6 +1,6 @@
 {
   "name": "chaii",
-  "packageManager": "bun@1.0.1",
+  "packageManager": "bun@1.1.7",
   "private": true,
   "license": "GPL-3.0",
   "workspaces": [
@@ -13,7 +13,8 @@
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "bun --cwd=packages/ui run add"
+    "clean": "rm -rf node_modules .turbo",
+    "ui:add": "bun --filter=@chaii/ui run add"
   },
   "devDependencies": {
     "@chaii/eslint-config": "workspace:*",

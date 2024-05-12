@@ -1,8 +1,8 @@
-import tailwindUiConfig from "@chaii/tailwind-config/tailwind.config";
+import tailwindConfig from "@chaii/tailwind-config/tailwind.config";
 import { Config } from "tailwindcss";
 import { merge } from "lodash/fp";
 
-const config = merge(tailwindUiConfig, {
+const config = merge(tailwindConfig, {
   theme: {
     extend: {
       fontFamily: {
