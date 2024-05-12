@@ -22,10 +22,27 @@ import { cn } from "@chaii/ui/lib/utils";
 import { usePathname } from "next/navigation";
 import { createContext, use, useState } from "react";
 import { Bars2Icon } from "@heroicons/react/16/solid";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@chaii/ui/components/accordion";
+
+const itemStyle = cn(
+  "text-sm",
+  buttonVariants({ variant: "link", size: "lg" }),
+  navigationMenuTriggerStyle(),
+);
 
 type NavItem = {
   title: string;
   href: Route;
+};
+
+const useIsNavItemActive = () => {
+  const pathname = usePathname();
+  return (item: NavItem) => pathname.startsWith(item.href);
 };
 
 type NavContext = {
@@ -34,22 +51,25 @@ type NavContext = {
 };
 const navContext = createContext<NavContext>(null as any);
 
-function MenuItem({ title, href }: NavItem) {
-  const pathname = usePathname();
+function MenuItem({
+  navItem,
+  className,
+}: {
+  navItem: NavItem;
+  className?: string;
+}) {
   const { onLinkClick } = use(navContext);
+  const isNavItemActive = useIsNavItemActive();
 
   return (
-    <NavigationMenuItem key={title} asChild>
-      <Link href={href} legacyBehavior passHref>
+    <NavigationMenuItem key={navItem.title} asChild>
+      <Link href={navItem.href} legacyBehavior passHref>
         <NavigationMenuLink
-          active={pathname.startsWith(href)}
-          className={cn(
-            buttonVariants({ variant: "link", size: "lg" }),
-            navigationMenuTriggerStyle(),
-          )}
+          active={isNavItemActive(navItem)}
+          className={cn(itemStyle, className)}
           onClick={onLinkClick}
         >
-          {title}
+          {navItem.title}
         </NavigationMenuLink>
       </Link>
     </NavigationMenuItem>
@@ -61,8 +81,15 @@ type NavItemCollection = {
   items: NavItem[];
 };
 
-function MenuItemCollection({ title, items }: NavItemCollection) {
+const useIsNavItemCollectionActive = () => {
+  const isNavItemActive = useIsNavItemActive();
+  return (navItemCollection: NavItemCollection) =>
+    navItemCollection.items.some(isNavItemActive);
+};
+
+function MenuItemCollectionHorizontal({ title, items }: NavItemCollection) {
   const navContextValue = use(navContext);
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
@@ -70,7 +97,7 @@ function MenuItemCollection({ title, items }: NavItemCollection) {
         <navContext.Provider value={navContextValue}>
           <NavigationMenuList>
             {items.map((item) => (
-              <MenuItem key={item.title} {...item} />
+              <MenuItem key={item.title} navItem={item} />
             ))}
           </NavigationMenuList>
         </navContext.Provider>
@@ -79,35 +106,97 @@ function MenuItemCollection({ title, items }: NavItemCollection) {
   );
 }
 
-type NavTopItem = NavItem | NavItemCollection;
+function MenuItemCollectionVertical({ title, items }: NavItemCollection) {
+  return (
+    <AccordionItem value={title}>
+      <AccordionTrigger className={itemStyle}>{title}</AccordionTrigger>
+      <AccordionContent asChild>
+        <NavigationMenuList className="flex-col items-stretch space-x-0">
+          {items.map((item) => (
+            <MenuItem key={item.title} navItem={item} className="w-full" />
+          ))}
+        </NavigationMenuList>
+      </AccordionContent>
+    </AccordionItem>
+  );
+}
 
-function TopNavItems({
-  navItems,
-  className,
-  onLinkClick,
-  direction,
-}: {
+function MenuItemCollection(props: NavItemCollection) {
+  const { direction } = use(navContext);
+
+  switch (direction) {
+    case "horizontal":
+      return <MenuItemCollectionHorizontal {...props} />;
+    case "vertical":
+      return <MenuItemCollectionVertical {...props} />;
+  }
+}
+
+type NavTopItem = NavItem | NavItemCollection;
+const isNavItemCollection = (
+  navItem: NavTopItem,
+): navItem is NavItemCollection => "items" in navItem;
+
+type NavTopItemsProps = {
   navItems: NavTopItem[];
   className?: string;
-} & NavContext) {
+};
+
+function TopNavItemsHorizontal({ navItems, className }: NavTopItemsProps) {
+  return (
+    <NavigationMenuList
+      className={cn("flex-row space-x-2 space-y-0 items-center", className)}
+    >
+      {navItems.map((navItem) =>
+        isNavItemCollection(navItem) ? (
+          <MenuItemCollection key={navItem.title} {...navItem} />
+        ) : (
+          <MenuItem key={navItem.title} navItem={navItem} />
+        ),
+      )}
+    </NavigationMenuList>
+  );
+}
+
+function TopNavItemsVertical({ navItems, className }: NavTopItemsProps) {
+  const isNavItemCollectionActive = useIsNavItemCollectionActive();
+  const [value, setValue] = useState(
+    navItems.filter(isNavItemCollection).find(isNavItemCollectionActive)?.title,
+  );
+  return (
+    <Accordion
+      type="single"
+      collapsible
+      className={className}
+      value={value}
+      onValueChange={setValue}
+    >
+      {navItems.map((navItem) =>
+        isNavItemCollection(navItem) ? (
+          <MenuItemCollection key={navItem.title} {...navItem} />
+        ) : (
+          <MenuItem key={navItem.title} navItem={navItem} />
+        ),
+      )}
+    </Accordion>
+  );
+}
+
+function TopNavItems({
+  onLinkClick,
+  direction,
+  ...props
+}: NavTopItemsProps & NavContext) {
   return (
     <navContext.Provider value={{ direction, onLinkClick }}>
-      <NavigationMenuList
-        className={cn(
-          direction === "vertical" && "flex-col space-x-0 space-y-2 items-end",
-          direction === "horizontal" &&
-            "flex-row space-x-2 space-y-0 items-center",
-          className,
-        )}
-      >
-        {navItems.map((navItem) =>
-          "items" in navItem ? (
-            <MenuItemCollection key={navItem.title} {...navItem} />
-          ) : (
-            <MenuItem key={navItem.title} {...navItem} />
-          ),
-        )}
-      </NavigationMenuList>
+      {(() => {
+        switch (direction) {
+          case "horizontal":
+            return <TopNavItemsHorizontal {...props} />;
+          case "vertical":
+            return <TopNavItemsVertical {...props} />;
+        }
+      })()}
     </navContext.Provider>
   );
 }
