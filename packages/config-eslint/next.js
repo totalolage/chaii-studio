@@ -8,7 +8,7 @@ module.exports = {
     "eslint:recommended",
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
-    "config-eslint-turbo",
+    "eslint-config-turbo",
     "plugin:tailwindcss/recommended",
   ],
   globals: {
