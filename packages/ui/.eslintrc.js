@@ -1,5 +1,5 @@
 /** @type {import("eslint").Linter.Config} */
-const eslintConfig = {
+module.exports = {
   root: true,
   extends: ["@chaii/eslint-config/react-internal.js"],
   parser: "@typescript-eslint/parser",
@@ -7,5 +7,3 @@ const eslintConfig = {
     "no-redeclare": "off",
   },
 };
-
-module.exports = eslintConfig;
