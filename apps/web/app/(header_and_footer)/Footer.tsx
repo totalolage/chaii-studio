@@ -7,9 +7,8 @@ import { EnvelopeIcon } from "@heroicons/react/16/solid";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-4 @container">
-      <div className="container flex items-center flex-col @md:flex-row @md:justify-between @md:items-normal">
-
+    <footer className="bg-primary py-4 text-white @container">
+      <div className="container flex flex-col items-center @md:flex-row @md:justify-between">
         <Tooltip>
           <TooltipTrigger asChild>
             <span>
@@ -25,11 +24,13 @@ export default function Footer() {
           </TooltipContent>
         </Tooltip>
 
-        <a href="mailto:contact@chaii.studio" className="flex space-x-1 items-center">
+        <a
+          href="mailto:contact@chaii.studio"
+          className="flex items-center space-x-1"
+        >
           <EnvelopeIcon className="size-4" />
           <span>contact@chaii.studio</span>
         </a>
-          
       </div>
     </footer>
   );
