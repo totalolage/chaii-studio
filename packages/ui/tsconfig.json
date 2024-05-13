@@ -6,6 +6,6 @@
       "@chaii/ui/*": ["src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../config-typescript/reset.d.ts"],
   "exclude": ["node_modules"]
 }
