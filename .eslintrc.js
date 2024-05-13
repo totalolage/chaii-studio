@@ -2,7 +2,7 @@
 /** @type {import("eslint").Linter.Config} */
 const eslintConfig = {
   ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["@chaii/eslint-config/library.js"],
+  extends: ["@chaii/config-eslint/library.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,

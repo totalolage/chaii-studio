@@ -1,2 +1,2 @@
 /* eslint-disable */
-module.exports = require('@chaii/tailwind-config/postcss.config');
+module.exports = require('@chaii/config-tailwind/postcss.config');

@@ -5,7 +5,7 @@
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.ts",
-    "css": "@chaii/tailwind-config/global.css",
+    "css": "@chaii/config-tailwind/global.css",
     "baseColor": "slate",
     "cssVariables": true
   },

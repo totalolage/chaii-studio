@@ -12,16 +12,18 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.ts{x,}\"",
     "clean": "rm -rf node_modules .turbo",
-    "ui:add": "bun --filter=@chaii/ui run add"
+    "add-component": "bun --filter=@chaii/ui run add-component",
+    "ui:add": "bun --cwc=packages/ui add-safe",
+    "es:add": "bun --cwc=packages/config-eslint add-safe",
+    "ts:add": "bun --cwc=packages/config-typescript add-safe",
+    "tw:add": "bun --cwc=packages/config-tailwind add-safe",
+    "web:add": "bun --cwd=apps/web add-safe"
   },
-  "devDependencies": {
-    "@chaii/eslint-config": "workspace:*",
-    "@chaii/typescript-config": "workspace:*",
+  "dependencies": {
     "@types/bun": "^1.1.2",
     "@zemble/utils": "^0.7.34",
-    "prettier": "^3.2.5",
     "turbo": "latest"
   }
 }

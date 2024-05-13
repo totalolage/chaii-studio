@@ -1,4 +1,4 @@
-import tailwindConfig from "@chaii/tailwind-config/tailwind.config";
+import tailwindConfig from "@chaii/config-tailwind/tailwind.config";
 import { Config } from "tailwindcss";
 import { merge } from "lodash/fp";
 

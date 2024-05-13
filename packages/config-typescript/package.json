@@ -1,5 +1,5 @@
 {
-  "name": "@chaii/typescript-config",
+  "name": "@chaii/config-typescript",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -10,6 +10,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.1"
+    "@types/lodash": "^4.17.1",
+    "@total-typescript/ts-reset": "^0.5.1"
   }
 }

@@ -1,5 +1,5 @@
 import "normalize.css";
-import "@chaii/tailwind-config/globals.css";
+import "@chaii/config-tailwind/globals.css";
 
 import type { Metadata } from "next";
 import { Syne } from "next/font/google";

@@ -1,5 +1,5 @@
 {
-  "extends": "@chaii/typescript-config/react-library.json",
+  "extends": "@chaii/config-typescript/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
