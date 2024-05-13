@@ -9,6 +9,7 @@ module.exports = {
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
     "eslint-config-turbo",
+    "plugin:tailwindcss/recommended",
   ],
   globals: {
     React: true,
@@ -24,6 +25,9 @@ module.exports = {
       typescript: {
         project,
       },
+    },
+    tailwindcss: {
+      callees: ["classnames", "clsx", "cn", "tw", "tailwindMerge"],
     },
   },
   ignorePatterns: [

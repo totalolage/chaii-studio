@@ -145,7 +145,7 @@ type NavTopItemsProps = {
 function TopNavItemsHorizontal({ navItems, className }: NavTopItemsProps) {
   return (
     <NavigationMenuList
-      className={cn("flex-row space-x-2 space-y-0 items-center", className)}
+      className={cn("flex-row items-center space-x-2 space-y-0", className)}
     >
       {navItems.map((navItem) =>
         isNavItemCollection(navItem) ? (
@@ -240,7 +240,7 @@ export function NavMenuCompact({ className }: NavMenuProps) {
         </SheetHeader>
         <NavigationMenu
           orientation="vertical"
-          className="self-end justify-self-center align-self-center flex-grow-0"
+          className="align-self-center grow-0 self-end justify-self-center"
         >
           <TopNavItems
             navItems={NAVIGATION}

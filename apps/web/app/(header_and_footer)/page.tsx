@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Component() {
   return (
     <main>
-      <section className="w-full h-40 relative">
+      <section className="relative h-40 w-full">
         <Image
           src={foundersImg}
           alt="Founders"
