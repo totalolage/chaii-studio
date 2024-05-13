@@ -1,5 +1,5 @@
 {
-  "extends": "@chaii/typescript-config/nextjs.json",
+  "extends": "@chaii/config-typescript/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
@@ -17,7 +17,8 @@
     "postcss.config.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../../packages/config-typescript/reset.d.ts"
   ],
   "exclude": ["node_modules"]
 }

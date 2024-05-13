@@ -15,4 +15,3 @@ const config = merge(tailwindConfig, {
 }) satisfies Config;
 
 export default config;
-
