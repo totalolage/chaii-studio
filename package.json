@@ -1,5 +1,6 @@
 {
   "name": "chaii",
+  "packageManager": "bun@1.1.26",
   "private": true,
   "license": "GPL-3.0",
   "workspaces": [
@@ -21,7 +22,7 @@
     "web:add": "bun --cwd=apps/web add-safe"
   },
   "dependencies": {
-    "@types/bun": "latest",
-    "turbo": "^1.13.3"
+    "@types/bun": "^1.1.8",
+    "turbo": "^2.1.1"
   }
 }
