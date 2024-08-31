@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@types/bun": "latest",
-    "turbo": "latest"
+    "turbo": "^1.13.3"
   }
 }
