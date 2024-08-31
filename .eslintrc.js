@@ -2,11 +2,11 @@
 /** @type {import("eslint").Linter.Config} */
 const eslintConfig = {
   ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["@chaii/config-eslint/library.js"],
+  extends: ["./packages/config-eslint/library.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
   },
 };
 
-export default eslintConfig;
+module.exports = eslintConfig;
