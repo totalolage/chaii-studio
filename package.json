@@ -15,11 +15,11 @@
     "format": "prettier --write \"**/*.ts{x,}\"",
     "clean": "rm -rf node_modules .turbo",
     "add-component": "bun --filter=@chaii/ui run add-component",
-    "ui:add": "bun --cwd=packages/ui add-safe",
-    "es:add": "bun --cwd=packages/config-eslint add-safe",
-    "ts:add": "bun --cwd=packages/config-typescript add-safe",
-    "tw:add": "bun --cwd=packages/config-tailwind add-safe",
-    "web:add": "bun --cwd=apps/web add-safe"
+    "ui:add": "bun --cwd=packages/ui add",
+    "es:add": "bun --cwd=packages/config-eslint add",
+    "ts:add": "bun --cwd=packages/config-typescript add",
+    "tw:add": "bun --cwd=packages/config-tailwind add",
+    "web:add": "bun --cwd=apps/web add"
   },
   "dependencies": {
     "@types/bun": "^1.1.8",
