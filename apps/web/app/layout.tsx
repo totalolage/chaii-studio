@@ -2,24 +2,24 @@ import "normalize.css";
 import "@chaii/config-tailwind/globals.css";
 
 import type { Metadata } from "next";
-import { Syne } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
 import { Providers } from "./Providers";
 
-const sans = Syne({
+const sans = Urbanist({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
 });
 
-const serif = Syne({
+const serif = Urbanist({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-serif",
 });
 
-const mono = Syne({
+const mono = Urbanist({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-mono",
