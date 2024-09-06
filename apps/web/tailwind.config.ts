@@ -48,6 +48,9 @@ const config = merge(tailwindConfig, {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
       },
+      borderWidth: {
+        3: "0.2rem",
+      }
     },
   },
 }) satisfies Config;
