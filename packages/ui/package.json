@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "add": "bunx shadcn-ui@latest add",
+    "add": "bunx shadcn@latest add",
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@chaii/config-eslint": "workspace:*",
     "@chaii/config-tailwind": "workspace:*",
     "@chaii/config-typescript": "workspace:*",
-    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-navigation-menu": "^1.1.4",

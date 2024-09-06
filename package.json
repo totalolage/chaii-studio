@@ -14,7 +14,7 @@
     "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.ts{x,}\"",
     "clean": "rm -rf node_modules .turbo",
-    "add-component": "bun --filter=@chaii/ui run add-component",
+    "add-component": "bun --cwd=packages/ui run add",
     "ui:add": "bun --cwd=packages/ui add",
     "es:add": "bun --cwd=packages/config-eslint add",
     "ts:add": "bun --cwd=packages/config-typescript add",
