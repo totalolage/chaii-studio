@@ -3,7 +3,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import containerQueries from "@tailwindcss/container-queries";
 
 const tailwindConfig = {
-  content: ["./app/**/*.{ts,tsx}", "../../packages/ui/src/**/*.{ts,tsx}"],
+  content: ["../../packages/ui/src/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,

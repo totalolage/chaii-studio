@@ -1,6 +1,6 @@
 import tailwindConfig from "@chaii/config-tailwind/tailwind.config";
 import { Config } from "tailwindcss";
-import { merge } from "lodash/fp";
+import { mergeWith } from "lodash/fp";
 
 const chaiiColors = {
   black: "#1D1E17",
@@ -35,24 +35,33 @@ const chaiiColors = {
   },
 };
 
-const config = merge(tailwindConfig, {
-  theme: {
-    colors: {
-      ...chaiiColors,
-      foreground: chaiiColors.black,
-      background: chaiiColors.white,
-    },
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
-        mono: ["var(--font-mono)"],
+const config = mergeWith(
+  (lhs, rhs) => {
+    if (Array.isArray(lhs) && Array.isArray(rhs)) {
+      return [...lhs, ...rhs];
+    }
+  },
+  tailwindConfig,
+  {
+    content: ["./app/**/*.{ts,tsx}"],
+    theme: {
+      colors: {
+        ...chaiiColors,
+        foreground: chaiiColors.black,
+        background: chaiiColors.white,
       },
-      borderWidth: {
-        3: "0.2rem",
-      }
+      extend: {
+        fontFamily: {
+          sans: ["var(--font-sans)"],
+          serif: ["var(--font-serif)"],
+          mono: ["var(--font-mono)"],
+        },
+        borderWidth: {
+          3: "0.2rem",
+        },
+      },
     },
   },
-}) satisfies Config;
+) satisfies Config;
 
 export default config;
