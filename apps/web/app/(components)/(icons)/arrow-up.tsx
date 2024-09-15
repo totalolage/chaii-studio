@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 
 // https://www.figma.com/design/SkUPwgldrXZp15i2rIs7JE/Chaii-website?node-id=7-1344&node-type=FRAME&t=4MgYCo4dU8BBZMNP-0
-export default function MobileAccordionMenuArrow(props: ComponentProps<"svg">) {
+export default function ArrowUpIcon(props: ComponentProps<"svg">) {
   return (
     <svg
       width="46"
