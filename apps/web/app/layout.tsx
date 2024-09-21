@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
+
 import { Providers } from "./Providers";
 
 const sans = Urbanist({

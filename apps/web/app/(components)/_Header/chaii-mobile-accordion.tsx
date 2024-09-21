@@ -2,7 +2,6 @@
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-
 import { cn } from "@chaii/ui/lib/utils";
 import { ReactNode, useRef, useState } from "react";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import { useOutsideClick } from "rooks";
 import { Route } from "next";
 import { usePathname } from "next/navigation";
 import { curry } from "lodash/fp";
+
 import ChaiiSquiggle from "~/(components)/squiggle.sm";
 import ArrowUpIcon from "~/(components)/(icons)/arrow-up";
 

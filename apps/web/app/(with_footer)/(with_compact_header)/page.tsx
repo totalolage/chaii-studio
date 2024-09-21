@@ -1,6 +1,8 @@
 import Image from "next/image";
-import ChaiiSquiggle from "~/(components)/squiggle.lg";
+
 import heroImage from "./hero.png";
+
+import ChaiiSquiggle from "~/(components)/squiggle.lg";
 import Circle from "~/(components)/Circle";
 
 export default function HomePage() {
