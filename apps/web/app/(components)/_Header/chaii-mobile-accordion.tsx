@@ -10,7 +10,7 @@ import { useOutsideClick } from "rooks";
 import { Route } from "next";
 import { usePathname } from "next/navigation";
 import { curry } from "lodash/fp";
-import ChaiiSquiggle from "~/(components)/squiggle";
+import ChaiiSquiggle from "~/(components)/squiggle.sm";
 import ArrowUpIcon from "~/(components)/(icons)/arrow-up";
 
 export default function MobileMenu({

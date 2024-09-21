@@ -49,6 +49,7 @@ const config = mergeWith(
         ...chaiiColors,
         foreground: chaiiColors.black,
         background: chaiiColors.white,
+        transparent: "transparent",
       },
       extend: {
         fontFamily: {

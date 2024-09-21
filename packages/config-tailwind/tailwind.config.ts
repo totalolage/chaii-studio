@@ -53,6 +53,11 @@ const tailwindConfig = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      width: {
+        112: "28rem",
+        120: "30rem",
+        128: "32rem",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
