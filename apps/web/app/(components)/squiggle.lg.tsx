@@ -8,8 +8,8 @@ export default function ChaiiSquiggleLg({
 }: ComponentProps<"svg">) {
   return (
     <svg
-      width={385 / 2 * 0.95}
-      height={161 / 2 * 0.95}
+      width={(385 / 2) * 0.95}
+      height={(161 / 2) * 0.95}
       viewBox="0 0 385 161"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

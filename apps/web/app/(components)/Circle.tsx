@@ -1,14 +1,11 @@
 import { cn } from "@chaii/ui/lib/utils";
 import { ComponentProps } from "react";
 
-export default function Circle({
-  className,
-  ...props
-}: ComponentProps<"svg">) {
+export default function Circle({ className, ...props }: ComponentProps<"svg">) {
   return (
     <svg
-      width={272 / 2 * 0.9}
-      height={131 / 2 * 0.9}
+      width={(272 / 2) * 0.9}
+      height={(131 / 2) * 0.9}
       viewBox="0 0 272 131"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
