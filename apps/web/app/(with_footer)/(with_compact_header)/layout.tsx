@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-import { CompactHeader } from "~/(components)/_Header";
+import { CompactHeader } from "~/_components/Header";
 
 export default function HeaderAndFooterLayout({ children }: PropsWithChildren) {
   return (

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-import Footer from "~/(components)/Footer";
+import Footer from "~/_components/Footer";
 
 export default function HeaderAndFooterLayout({ children }: PropsWithChildren) {
   return (

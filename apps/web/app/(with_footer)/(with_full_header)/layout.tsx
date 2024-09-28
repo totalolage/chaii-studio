@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-import { FullHeader } from "~/(components)/_Header";
+import { FullHeader } from "~/_components/Header";
 
 export default function HeaderAndFooterLayout({ children }: PropsWithChildren) {
   return (
