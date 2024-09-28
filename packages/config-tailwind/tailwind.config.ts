@@ -5,14 +5,13 @@ import containerQueries from "@tailwindcss/container-queries";
 const tailwindConfig = {
   content: ["../../packages/ui/src/**/*.{ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
+    extend: {
       screens: {
         "2xl": "1400px",
       },
-    },
-    extend: {
+      container: {
+        center: true,
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,8 +72,8 @@ const tailwindConfig = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundColor: {
-        "inherit": "inherit"
-      }
+        inherit: "inherit",
+      },
     },
   },
   plugins: [tailwindcssAnimate, containerQueries],

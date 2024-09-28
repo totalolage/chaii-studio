@@ -36,15 +36,17 @@ const chaiiColors = {
 };
 
 const config = mergeWith(
-  (lhs, rhs) => {
-    if (Array.isArray(lhs) && Array.isArray(rhs)) {
+  (lhs, rhs, key) => {
+    if (key === "content" && Array.isArray(lhs) && Array.isArray(rhs))
       return [...lhs, ...rhs];
-    }
   },
   tailwindConfig,
   {
     content: ["./app/**/*.{ts,tsx}"],
     theme: {
+      screens: {
+        "sm": "600px",
+      },
       colors: {
         ...chaiiColors,
         foreground: chaiiColors.black,

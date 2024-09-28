@@ -8,8 +8,8 @@ import Flower from "~/_components/Flower";
 
 export default function HomePage() {
   return (
-    <main className="flex max-w-[100vw] flex-col items-center px-5 [overflow:clip]">
-      <h1 className="relative z-10 mt-8 whitespace-nowrap text-5xl font-bold">
+    <main className="flex flex-col items-center [overflow:clip]">
+      <h1 className="container relative z-10 mt-8 whitespace-nowrap px-5 text-5xl font-bold">
         Good design
         <wbr />
         {" is like a "}
