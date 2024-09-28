@@ -8,6 +8,9 @@ import { cn } from "@chaii/ui/lib/utils";
 
 import { Providers } from "./Providers";
 
+import Header from "~/_components/Header";
+import Footer from "~/_components/Footer";
+
 const sans = Urbanist({
   subsets: ["latin"],
   display: "swap",
@@ -37,7 +40,15 @@ export default function RootLayout({ children }: PropsWithChildren) {
       lang="en"
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
-      <Providers>{children}</Providers>
+      <Providers>
+        <body className="grid min-h-dvh grid-rows-[minmax(100dvh,1fr)_auto]">
+          <div>
+            <Header className="sticky top-0 z-20" />
+            {children}
+          </div>
+          <Footer />
+        </body>
+      </Providers>
     </html>
   );
 }
