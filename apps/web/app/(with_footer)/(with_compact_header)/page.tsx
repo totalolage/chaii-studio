@@ -4,6 +4,7 @@ import heroImage from "./hero.png";
 
 import ChaiiSquiggle from "~/_components/Squiggle.lg";
 import Circle from "~/_components/Circle";
+import Flower from "~/_components/Flower";
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
         <span className="relative">
           chaii
           <Circle className="absolute left-0 top-1 -z-10" />
+          <Flower className="absolute bottom-0 left-full -z-10" />
         </span>
       </h1>
       <div className="relative w-[140%] max-w-2xl translate-y-[-10%] after:absolute after:inset-0 after:bg-gradient-to-b after:from-white after:from-5% after:to-transparent after:to-20%">
