@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function FooterInfo({ className }: { className?: string }) {
   return (
-    <div className={cn("space-y-4 px-[var(--footer-x-pad)] leading-tight", className)}>
+    <div className={cn("space-y-4 px-[var(--footer-x-pad)]", className)}>
       <div className="mx-auto w-fit space-y-2">
         {address}
         {contacts}

@@ -41,8 +41,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
       <Providers>
-        <body className="grid min-h-dvh grid-rows-[minmax(100dvh,1fr)_auto] bg-white text-black">
-          <div>
+        <body className="grid min-h-dvh grid-rows-[minmax(100dvh,1fr)_auto] bg-white font-medium leading-tight text-black ">
+          <div className="mb-5">
             <Header className="sticky top-0 z-20" />
             {children}
           </div>

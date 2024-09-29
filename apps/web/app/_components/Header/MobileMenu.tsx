@@ -52,7 +52,7 @@ export default function MobileMenu({
       )}
     >
       <header>
-        <AccordionPrimitive.Item value="menu" className="text-sm font-semibold">
+        <AccordionPrimitive.Item value="menu" className="text-sm">
           <AccordionPrimitive.Header className="flex flex-col">
             <AccordionPrimitive.Trigger
               ref={accordionTriggerRef}
