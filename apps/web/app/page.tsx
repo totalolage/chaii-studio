@@ -9,7 +9,7 @@ import Flower from "~/_components/Flower";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center [overflow:clip]">
+    <main className="flex flex-col items-center [overflow:clip] mb-10">
       <h1 className="container relative z-10 mt-8 whitespace-nowrap px-5 text-5xl font-bold">
         Good design
         <wbr />
@@ -34,6 +34,17 @@ export default function HomePage() {
       >
         <Image src={heroImage} priority alt="graphic of Chaii founders" />
       </div>
+      <p className="-mt-20 self-stretch px-5">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          alt="clearfix"
+          className="invisible float-right h-8 w-1/4 [shape-outside:ellipse(50%_100%_at_50%_0%)] sm:w-1/3"
+        />
+        Based in Prague, Czech republic, chaii studio brings a new clever and
+        highly practical solution to your every day design needs. We at chaii
+        believe that great design and functionality is as necessary as a warm
+        cup of tea on a cold windswept evening.
+      </p>
     </main>
   );
 }
