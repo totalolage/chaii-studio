@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cn } from "@chaii/ui/lib/utils";
 
 import heroImage from "./hero.png";
 
@@ -25,12 +26,13 @@ export default function HomePage() {
           <Flower className="absolute bottom-0 left-full -z-10" />
         </span>
       </h1>
-      <div className="relative w-[140%] max-w-2xl translate-y-[-10%] after:absolute after:inset-0 after:bg-gradient-to-b after:from-white after:from-5% after:to-transparent after:to-20%">
-        <Image
-          src={heroImage}
-          priority
-          alt="graphic of Chaii founders"
-        />
+      <div
+        className={cn(
+          "relative w-[140%] max-w-2xl translate-x-[5%] translate-y-[-10%]",
+          "after:absolute after:inset-0 after:bg-gradient-to-b after:from-white after:from-5% after:to-transparent after:to-20%",
+        )}
+      >
+        <Image src={heroImage} priority alt="graphic of Chaii founders" />
       </div>
     </main>
   );
