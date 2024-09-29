@@ -62,6 +62,15 @@ const config = mergeWith(
         borderWidth: {
           3: "0.2rem",
         },
+        animation: {
+          "scroll-left": "scroll-left 10s linear infinite",
+        },
+        keyframes: {
+          "scroll-left": {
+            "0%": { transform: "translateX(0%)", left: "100%" },
+            "100%": { transform: "translateX(-100%)", left: "0%" },
+          },
+        }
       },
     },
   },

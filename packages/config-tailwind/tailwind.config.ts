@@ -47,6 +47,9 @@ const tailwindConfig = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontSize: {
+        "2xs": ["0.625rem", "0.75rem"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

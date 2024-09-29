@@ -15,7 +15,6 @@
     "./tailwind.config": "./tailwind.config.ts"
   },
   "dependencies": {
-    "@tailwindcss/container-queries": "^0.1.1",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
@@ -25,6 +24,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwind-plugin/expose-colors": "^1.1.8",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
