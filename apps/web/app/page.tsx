@@ -28,7 +28,7 @@ export default function HomePage() {
       </h1>
       <div
         className={cn(
-          "relative w-[140%] max-w-2xl translate-x-[5%] translate-y-[-10%]",
+          "relative w-[148%] max-w-2xl translate-x-[5%] translate-y-[-10%]",
           "after:absolute after:inset-0 after:bg-gradient-to-b after:from-white after:from-5% after:to-transparent after:to-20%",
         )}
       >
