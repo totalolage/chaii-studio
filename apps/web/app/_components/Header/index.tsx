@@ -14,7 +14,7 @@ export default function Header({
   className?: string;
 }) {
   const pathname = usePathname();
-  const compact = compactHeaderRoutes.some((route) => pathname.startsWith(route));
+  const compact = compactHeaderRoutes.includes(pathname);
 
   return <MobileMenu className={cn("bg-white", className)} compact={compact} />;
 }

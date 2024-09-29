@@ -111,7 +111,7 @@ export default function MobileMenu({
   );
 }
 
-const ITEM_HEIGHT = "h-[45px]";
+const ITEM_HEIGHT = "h-[40px]";
 function MenuItem({
   children,
   href,
