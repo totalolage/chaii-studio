@@ -4,7 +4,7 @@ export default function FooterBlurb({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative h-[calc(1em_-_0.49rem)] max-w-[100dvw] text-5xl font-bold text-blue",
+        "relative h-[calc(1em_-_0.49rem)] w-full text-5xl font-bold text-blue",
         className,
       )}
     >
