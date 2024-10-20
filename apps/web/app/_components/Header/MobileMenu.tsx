@@ -10,7 +10,7 @@ import { Route } from "next";
 import { usePathname } from "next/navigation";
 import { curry } from "lodash/fp";
 
-import ChaiiSquiggle from "~/_components/Squiggle.sm";
+import Squiggle from "~/_components/Squiggle";
 import ArrowUpIcon from "~/_components/icons/arrow-up";
 
 export default function MobileMenu({
@@ -69,7 +69,7 @@ export default function MobileMenu({
               <hr className="w-full  border-b-[1.5px] border-t-0 border-b-black" />
               {!compact && (
                 <div className="relative">
-                  <ArrowUpIcon className="pointer-events-none absolute right-3 top-1/2 size-5 -translate-y-1/2 transition-transform duration-200" />
+                  <ArrowUpIcon className="pointer-events-none absolute right-3 size-5 transition-transform duration-200 center-y" />
                   {activeLink && (
                     <MenuItem href={activeLink}>
                       {linkLabels[activeLink]}
@@ -131,7 +131,7 @@ function MenuItem({
     >
       {children}
       {useIsActive(href) && (
-        <ChaiiSquiggle className="absolute left-1/2 top-1/2 -z-50 -translate-x-1/2 -translate-y-1/2" />
+        <Squiggle.long className="absolute -z-50 center" />
       )}
     </span>
   );

@@ -2,6 +2,8 @@ import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 import containerQueries from "@tailwindcss/container-queries";
 
+import { centerPlugin } from "./plugins/center";
+
 const tailwindConfig = {
   content: ["../../packages/ui/src/**/*.{ts,tsx}"],
   theme: {
@@ -79,7 +81,7 @@ const tailwindConfig = {
       },
     },
   },
-  plugins: [tailwindcssAnimate, containerQueries],
+  plugins: [tailwindcssAnimate, containerQueries, centerPlugin],
 } satisfies Config;
 
 export default tailwindConfig;

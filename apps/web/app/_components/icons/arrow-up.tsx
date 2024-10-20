@@ -14,8 +14,8 @@ export default function ArrowUpIcon(props: ComponentProps<"svg">) {
       <path
         d="M23 1.20996V44.79M23 44.79L9.62 31.41M23 44.79L36.38 31.41"
         stroke="currentColor"
-        stroke-width="3"
-        stroke-miterlimit="10"
+        strokeWidth="3"
+        strokeMiterlimit="10"
       />
     </svg>
   );
