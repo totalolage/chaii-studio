@@ -22,7 +22,7 @@
     "web:add": "bun --cwd=apps/web add"
   },
   "dependencies": {
-    "@types/bun": "^1.1.8",
+    "@types/bun": "^1.1.11",
     "turbo": "^2.2.1"
   }
 }
