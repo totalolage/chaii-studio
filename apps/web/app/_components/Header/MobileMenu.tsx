@@ -66,7 +66,7 @@ export default function MobileMenu({
               >
                 menu
               </div>
-              <hr className="w-full  border-b-[1.5px] border-t-0 border-b-black" />
+              <hr className="w-full border-b-[1.5px] border-t-0 border-b-black" />
               {!compact && (
                 <div className="relative">
                   <ArrowUpIcon className="pointer-events-none absolute right-3 size-5 transition-transform duration-200 center-y" />
