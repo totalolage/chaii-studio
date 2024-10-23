@@ -167,10 +167,10 @@ const linkLabels: Record<(typeof LINKS)[number], string> = {
 };
 
 const isActiveLinkFab = curry((pathname: string, link: Route) => {
-  const linksByLength = LINKS.sort((a, b) => b.length - a.length);
+  const linksByLength = LINKS.toSorted((a, b) => b.length - a.length);
   const mostMatchingLink = linksByLength.find((link) =>
     pathname.startsWith(link),
   );
   return mostMatchingLink === link;
 });
-const useIsActive = (link: Route) => isActiveLinkFab(usePathname())(link);
+const useIsActive = (link: Route) => isActiveLinkFab(usePathname(), link);
