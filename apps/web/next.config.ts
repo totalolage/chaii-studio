@@ -1,8 +1,8 @@
 import { NextConfig } from "next";
 
 export default {
-  transpilePackages: ["@chaii/ui"],
   experimental: {
     typedRoutes: true,
+    reactCompiler: true,
   }
 } satisfies NextConfig;
