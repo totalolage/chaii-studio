@@ -1,6 +1,6 @@
 {
   "name": "chaii",
-  "packageManager": "bun@1.1.26",
+  "packageManager": "bun@1.1.32",
   "private": true,
   "license": "GPL-3.0",
   "workspaces": [
