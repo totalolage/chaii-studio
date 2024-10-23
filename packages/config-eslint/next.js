@@ -20,7 +20,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ["only-warn", "react-compiler"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -61,5 +61,6 @@ module.exports = {
         "newlines-between": "always",
       },
     ],
+    "react-compiler/react-compiler": "error"
   },
 };
