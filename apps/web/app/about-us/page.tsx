@@ -1,17 +1,20 @@
 import { getImageProps } from "next/image";
+import { preload } from "react-dom";
 
 import bg1 from "./bg1.png";
 
 import Asterisk from "~/_components/Asterisk";
 
-export default function AboutUsPage() {
-  const bgImageProps = getImageProps({
-    src: bg1,
-    alt: "",
-    width: 200,
-    height: 146,
-  }).props;
+const bgImageProps = getImageProps({
+  src: bg1,
+  alt: "",
+  width: 200,
+  height: 146,
+}).props;
 
+preload(bgImageProps.src, { as: "image" });
+
+export default function AboutUsPage() {
   return (
     <main
       className="relative mt-10 px-4"
