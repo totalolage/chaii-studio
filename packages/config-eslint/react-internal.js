@@ -11,7 +11,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: ["eslint:recommended", "prettier", "eslint-config-turbo"],
-  plugins: ["only-warn", "react-compiler"],
+  plugins: ["only-warn", "react-compiler", "validate-jsx-nesting"],
   globals: {
     React: true,
     JSX: true,
@@ -37,6 +37,7 @@ module.exports = {
     { files: ["*.js?(x)", "*.ts?(x)"] },
   ],
   rules: {
-    "react-compiler/react-compiler": "error"
+    "react-compiler/react-compiler": "error",
+    "validate-jsx-nesting/no-invalid-jsx-nesting": "error",
   },
 };

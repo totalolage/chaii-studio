@@ -20,7 +20,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn", "react-compiler"],
+  plugins: ["only-warn", "react-compiler", "validate-jsx-nesting"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -29,6 +29,7 @@ module.exports = {
     },
     tailwindcss: {
       callees: ["classnames", "clsx", "cn", "tw", "tailwindMerge"],
+      whitelist: ["center(-[xy])?"],
     },
   },
   ignorePatterns: [
@@ -61,6 +62,7 @@ module.exports = {
         "newlines-between": "always",
       },
     ],
-    "react-compiler/react-compiler": "error"
+    "react-compiler/react-compiler": "error",
+    "validate-jsx-nesting/no-invalid-jsx-nesting": "error",
   },
 };
