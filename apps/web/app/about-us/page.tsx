@@ -44,7 +44,7 @@ export default function AboutUsPage() {
         <div className="[&:first-line]:font-semibold">
           <h2 className="relative inline text-2xl">
             Filip
-            <Asterisk className="center absolute -z-10" />
+            <Asterisk className="absolute -z-10 center" />
           </h2>
           <p className="inline">
             &nbsp;transforms complex ideas into robust, user-friendly websites.
@@ -56,7 +56,7 @@ export default function AboutUsPage() {
         <div className="[&:first-line]:font-semibold">
           <h2 className="relative inline text-2xl">
             Chloe
-            <Asterisk className="center absolute -z-10" />
+            <Asterisk className="absolute -z-10 center" />
           </h2>
           <p className="inline">
             &nbsp;brings creativity and style to every project. With her keen
