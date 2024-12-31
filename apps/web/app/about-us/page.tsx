@@ -40,28 +40,32 @@ export default function AboutUsPage() {
         and function to craft digital experiences that leave a lasting
         impression.
       </p>
-      <section className="mt-2 space-y-2 [&>:first-line]:font-semibold">
-        <p>
+      <section className="mt-2 space-y-2">
+        <div className="[&:first-line]:font-semibold">
           <h2 className="relative inline text-2xl">
             Filip
             <Asterisk className="absolute -z-10 center" />
           </h2>
-          &nbsp;transforms complex ideas into robust, user-friendly websites.
-          With a deep-rooted passion for technology, he ensures that every line
-          of code enhances the user experience, making websites not only
-          visually appealing but also high-performing and easy to navigate.
-        </p>
-        <p>
+          <p className="inline">
+            &nbsp;transforms complex ideas into robust, user-friendly websites.
+            With a deep-rooted passion for technology, he ensures that every
+            line of code enhances the user experience, making websites not only
+            visually appealing but also high-performing and easy to navigate.
+          </p>
+        </div>
+        <div className="[&:first-line]:font-semibold">
           <h2 className="relative inline text-2xl">
             Chloe
             <Asterisk className="absolute -z-10 center" />
           </h2>
-          &nbsp;brings creativity and style to every project. With her keen eye
-          for aesthetics and a talent for storytelling, she transforms concepts
-          into captivating visuals that communicate a brand’s unique identity.
-          From intuitive user interfaces to bold brand visuals, Chloe’s designs
-          are not only beautiful—they’re purposeful.
-        </p>
+          <p className="inline">
+            &nbsp;brings creativity and style to every project. With her keen
+            eye for aesthetics and a talent for storytelling, she transforms
+            concepts into captivating visuals that communicate a brand’s unique
+            identity. From intuitive user interfaces to bold brand visuals,
+            Chloe’s designs are not only beautiful—they’re purposeful.
+          </p>
+        </div>
       </section>
       <p className="mt-4">
         Together, Filip and Chloe combine their skills to offer a seamless blend
