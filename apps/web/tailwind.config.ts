@@ -45,7 +45,7 @@ const config = mergeWith(
     content: ["./app/**/*.{ts,tsx}"],
     theme: {
       screens: {
-        "sm": "600px",
+        sm: "600px",
       },
       colors: {
         ...chaiiColors,
@@ -70,7 +70,7 @@ const config = mergeWith(
             "0%": { transform: "translateX(0%)", left: "100%" },
             "100%": { transform: "translateX(-100%)", left: "0%" },
           },
-        }
+        },
       },
     },
   },

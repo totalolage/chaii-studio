@@ -130,9 +130,7 @@ function MenuItem({
       )}
     >
       {children}
-      {useIsActive(href) && (
-        <Squiggle.long className="absolute -z-50 center" />
-      )}
+      {useIsActive(href) && <Squiggle.long className="absolute -z-50 center" />}
     </span>
   );
 }

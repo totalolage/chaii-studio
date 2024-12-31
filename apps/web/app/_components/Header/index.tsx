@@ -8,11 +8,7 @@ import MobileMenu from "./MobileMenu";
 
 const compactHeaderRoutes: Route[] = ["/", "/our-work"];
 
-export default function Header({
-  className,
-}: {
-  className?: string;
-}) {
+export default function Header({ className }: { className?: string }) {
   const pathname = usePathname();
   const compact = compactHeaderRoutes.includes(pathname);
 

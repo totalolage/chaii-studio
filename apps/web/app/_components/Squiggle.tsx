@@ -21,10 +21,7 @@ function SquiggleShort({ className, ...props }: ComponentProps<"svg">) {
   );
 }
 
-function SquiggleLong({
-  className,
-  ...props
-}: ComponentProps<"svg">) {
+function SquiggleLong({ className, ...props }: ComponentProps<"svg">) {
   return (
     <svg
       width="78"
