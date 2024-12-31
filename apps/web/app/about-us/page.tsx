@@ -1,18 +1,17 @@
 import { getImageProps } from "next/image";
-import { preload } from "react-dom";
 
 import bg1 from "./bg1.png";
 
 import Asterisk from "~/_components/Asterisk";
 
+// Props are outside of the component to optimize preloading
 const bgImageProps = getImageProps({
   src: bg1,
   alt: "",
   width: 200,
   height: 146,
+  priority: true,
 }).props;
-
-preload(bgImageProps.src, { as: "image" });
 
 export default function AboutUsPage() {
   return (
