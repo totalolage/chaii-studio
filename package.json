@@ -19,7 +19,8 @@
     "es:add": "bun --cwd=packages/config-eslint add",
     "ts:add": "bun --cwd=packages/config-typescript add",
     "tw:add": "bun --cwd=packages/config-tailwind add",
-    "web:add": "bun --cwd=apps/web add"
+    "web:add": "bun --cwd=apps/web add",
+    "zcm:add": "bun --cwd=apps/akl-zalesak-customer-manager add"
   },
   "dependencies": {
     "@types/bun": "^1.1.12",
