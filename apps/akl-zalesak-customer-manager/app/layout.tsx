@@ -37,15 +37,15 @@ export default function RootLayout({ children }: PropsWithChildren) {
       lang="en"
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
-      <style>
-        {`
-        #clerk-components {
-          display: none;
-        }
-      `}
-      </style>
       <Providers>
         <body className="grid min-h-dvh grid-rows-[auto_1fr_auto] items-center bg-white font-medium leading-tight text-black">
+          <style>
+            {`
+              #clerk-components {
+                display: none;
+              }
+            `}
+          </style>
           <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
             <h1 className="font-bold">AKL Zálešák Customer Managment</h1>
             <SignedIn>
