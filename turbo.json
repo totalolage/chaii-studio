@@ -13,6 +13,9 @@
         "!.next/cache/**"
       ]
     },
+    "akl-zalesak-customer-manager#build": {
+      "env": ["DATABASE_URL"]
+    },
     "lint": {
       "dependsOn": [
         "^lint"
