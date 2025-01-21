@@ -1,9 +1,14 @@
 CREATE TABLE "customers" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"company_name" text NOT NULL,
-	"address" text,
 	"contact_person" text,
-	"contact_email" text
+	"contact_email" text,
+	"street_address" text,
+	"city" text,
+	"post_code" text,
+	"country" text,
+	"latitude" numeric,
+	"longitude" numeric
 );
 --> statement-breakpoint
 CREATE TABLE "service_technicians" (
@@ -17,7 +22,7 @@ CREATE TABLE "services" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"customer_id" uuid NOT NULL,
 	"description" text NOT NULL,
-	"last_payment" numeric(2) NOT NULL
+	"last_payment" numeric(10, 2) NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "technicians" (

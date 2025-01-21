@@ -12,9 +12,14 @@ export const technicians = pgTable("technicians", {
 export const customers = pgTable("customers", {
   id: uuid("id").primaryKey().defaultRandom(),
   companyName: text("company_name").notNull(),
-  address: text("address"), // Optional address
   contactPerson: text("contact_person"), // Optional contact person name
   contactEmail: text("contact_email"), // Optional email for communication
+  streetAddress: text("street_address"),
+  city: text("city"),
+  postCode: text("post_code"),
+  country: text("country"),
+  latitude: decimal("latitude"),
+  longitude: decimal("longitude"),
 });
 
 // Services table
@@ -25,7 +30,8 @@ export const services = pgTable("services", {
     .references(() => customers.id, { onDelete: "cascade" }),
   description: text("description").notNull(), // Service description
   lastPayment: decimal("last_payment", {
-    precision: 2,
+    precision: 10,
+    scale: 2,
   }).notNull(), // Payment amount for the service
 });
 

@@ -1,5 +1,5 @@
 {
-  "id": "bc38721a-a5a9-45f5-8bab-a6b25ca92079",
+  "id": "f905c4a4-c284-4faa-9469-c774a9b11ce5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -21,12 +21,6 @@
           "primaryKey": false,
           "notNull": true
         },
-        "address": {
-          "name": "address",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
         "contact_person": {
           "name": "contact_person",
           "type": "text",
@@ -36,6 +30,42 @@
         "contact_email": {
           "name": "contact_email",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "street_address": {
+          "name": "street_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "city": {
+          "name": "city",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_code": {
+          "name": "post_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "country": {
+          "name": "country",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "latitude": {
+          "name": "latitude",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "longitude": {
+          "name": "longitude",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": false
         }
@@ -139,7 +169,7 @@
         },
         "last_payment": {
           "name": "last_payment",
-          "type": "numeric(2)",
+          "type": "numeric(10, 2)",
           "primaryKey": false,
           "notNull": true
         }
