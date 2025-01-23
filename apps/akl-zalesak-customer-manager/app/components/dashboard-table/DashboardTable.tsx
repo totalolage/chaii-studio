@@ -2,7 +2,7 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@chaii/ui/components/table"
 
-import { services } from '~/mock_data/services'
+import { services } from 'mock_data/services'
 
 interface DashboardTableProps {
   data: typeof services

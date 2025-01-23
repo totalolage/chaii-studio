@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { DashboardTable } from "~/components/dashboard-table";
-import { services } from "~/mock_data/services";
+import { services } from "mock_data/services";
 
 export const metadata: Metadata = {
   title: "Customer Managment - AKL Zálešák",
