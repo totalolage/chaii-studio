@@ -14,10 +14,10 @@ const config = mergeWith(
       screens: {
         sm: "600px",
       },
-      colors: {
-        transparent: "transparent",
-      },
       extend: {
+        colors: {
+          transparent: "transparent",
+        },
         fontFamily: {
           sans: ["var(--font-sans)"],
           serif: ["var(--font-serif)"],

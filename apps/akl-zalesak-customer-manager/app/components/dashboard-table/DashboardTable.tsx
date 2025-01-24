@@ -9,6 +9,8 @@ import {
   TableRow,
 } from "@chaii/ui/components/table";
 
+import { TechnicianTag } from "../TechnicianTag";
+
 import { getDashboardTableData } from "./getDashboardData";
 
 interface DashboardTableProps {
@@ -27,26 +29,30 @@ export function DashboardTable({ data }: DashboardTableProps) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map(
-            ({customer, technicians, service}) => (
-              <TableRow key={service.id}>
-                <TableCell className="font-medium">
-                  {customer?.name ?? "Unknown"}
-                </TableCell>
-                <TableCell>
-                  {technicians.map((technician) => technician.name).join(", ")}
-                </TableCell>
-                <TableCell className="text-right">
-                  {Intl.NumberFormat("cs-CZ", {
-                    style: "currency",
-                    currency: "CZK",
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  }).format(parseInt(service.lastPayment, 10))}
-                </TableCell>
-              </TableRow>
-            ),
-          )}
+          {data.map(({ customer, technicians, service }) => (
+            <TableRow key={service.id}>
+              <TableCell className="font-medium">
+                {customer?.name ?? "Unknown"}
+              </TableCell>
+              <TableCell className="flex flex-wrap gap-1">
+                {technicians.map((technician) => (
+                  <TechnicianTag
+                    key={technician.id}
+                    technician={technician}
+                    role={technician.role}
+                  />
+                ))}
+              </TableCell>
+              <TableCell className="text-right">
+                {Intl.NumberFormat("cs-CZ", {
+                  style: "currency",
+                  currency: "CZK",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(parseInt(service.cost, 10))}
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>

@@ -6,18 +6,19 @@ import {
   customers as customersTable,
   technicians as techniciansTable,
   serviceTechnicians as serviceTechniciansTable,
+  technicianServiceRoleEnum,
 } from "db/schema";
 
 const techniciansByService = db
   .select({
     serviceId: servicesTable.id,
-    technicians: sql<{ id: string; name: string; role: string | null }[]>`
+    technicians: sql<{ id: string; name: string; role: typeof technicianServiceRoleEnum.enumValues[number] | null }[]>`
         JSON_AGG(
           JSON_OBJECT(
             ARRAY[
               'id', ${techniciansTable.id}::text,
               'name', ${techniciansTable.name},
-              'role', ${serviceTechniciansTable.role}
+              'role', ${serviceTechniciansTable.role}::text
             ]
           )
         )
