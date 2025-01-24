@@ -1,5 +1,5 @@
 {
-  "id": "f905c4a4-c284-4faa-9469-c774a9b11ce5",
+  "id": "4ecbbb6c-cc92-4142-a39d-7666ac9aa0e9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -96,7 +96,8 @@
         },
         "role": {
           "name": "role",
-          "type": "text",
+          "type": "role",
+          "typeSchema": "public",
           "primaryKey": false,
           "notNull": false
         }
@@ -167,11 +168,17 @@
           "primaryKey": false,
           "notNull": true
         },
-        "last_payment": {
-          "name": "last_payment",
+        "cost": {
+          "name": "cost",
           "type": "numeric(10, 2)",
           "primaryKey": false,
           "notNull": true
+        },
+        "time": {
+          "name": "time",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -235,7 +242,19 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {},
+  "enums": {
+    "public.role": {
+      "name": "role",
+      "schema": "public",
+      "values": [
+        "lead",
+        "support",
+        "logistics",
+        "managment",
+        "training"
+      ]
+    }
+  },
   "schemas": {},
   "sequences": {},
   "roles": {},

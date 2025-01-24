@@ -1,4 +1,12 @@
-import { text, decimal, pgTable, primaryKey, uuid } from "drizzle-orm/pg-core";
+import {
+  text,
+  decimal,
+  pgTable,
+  primaryKey,
+  uuid,
+  timestamp,
+  pgEnum,
+} from "drizzle-orm/pg-core";
 
 // Technicians table
 export const technicians = pgTable("technicians", {
@@ -29,13 +37,21 @@ export const services = pgTable("services", {
     .notNull()
     .references(() => customers.id, { onDelete: "cascade" }),
   description: text("description").notNull(), // Service description
-  lastPayment: decimal("last_payment", {
+  cost: decimal("cost", {
     precision: 10,
     scale: 2,
   }).notNull(), // Payment amount for the service
+  time: timestamp(),
 });
 
 // Technician-to-Service junction table
+export const technicianServiceRoleEnum = pgEnum("role", [
+  "lead",
+  "support",
+  "logistics",
+  "managment",
+  "training",
+]);
 export const serviceTechnicians = pgTable(
   "service_technicians",
   {
@@ -45,7 +61,7 @@ export const serviceTechnicians = pgTable(
     technicianId: uuid("technician_id")
       .notNull()
       .references(() => technicians.id, { onDelete: "cascade" }),
-    role: text("role"), // Optional: role or responsibility during the service
+    role: technicianServiceRoleEnum(),
   },
   (table) => [primaryKey({ columns: [table.serviceId, table.technicianId] })],
 );

@@ -38,7 +38,7 @@ await seed(db, schema).refine((f) => ({
   },
   services: {
     columns: {
-      lastPayment: f.number({
+      cost: f.number({
         minValue: 0,
         maxValue: 10000,
         precision: 2,

@@ -22,7 +22,8 @@ CREATE TABLE "services" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"customer_id" uuid NOT NULL,
 	"description" text NOT NULL,
-	"last_payment" numeric(10, 2) NOT NULL
+	"cost" numeric(10, 2) NOT NULL,
+	"time" timestamp
 );
 --> statement-breakpoint
 CREATE TABLE "technicians" (

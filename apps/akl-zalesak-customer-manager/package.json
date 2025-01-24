@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:db": "bunx drizzle-kit studio",
-    "dev:next" : "next dev",
+    "dev:next": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "db:seed": "bun db/seed.ts"
+    "db:seed": "bun db/seed.ts",
+    "db:reset": "bun scripts/reset-db.ts"
   },
   "dependencies": {
     "@chaii/ui": "workspace:*",
