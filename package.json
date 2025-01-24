@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "@types/bun": "^1.1.12",
-    "turbo": "^2.2.3"
+    "turbo": "^2.3.4"
   }
 }
