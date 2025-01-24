@@ -1,11 +1,18 @@
-"use client"
+"use client";
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@chaii/ui/components/table"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@chaii/ui/components/table";
 
-import { services } from 'mock_data/services'
+import { getDashboardTableData } from "./getDashboardData";
 
 interface DashboardTableProps {
-  data: typeof services
+  data: Awaited<ReturnType<typeof getDashboardTableData>>;
 }
 
 export function DashboardTable({ data }: DashboardTableProps) {
@@ -15,24 +22,33 @@ export function DashboardTable({ data }: DashboardTableProps) {
         <TableHeader>
           <TableRow>
             <TableHead>Company Name</TableHead>
-            <TableHead>Last Service</TableHead>
-            <TableHead>Next Service</TableHead>
-            <TableHead>Technician</TableHead>
+            <TableHead>Technicians</TableHead>
             <TableHead className="text-right">Last Payment (CZK)</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((service) => (
-            <TableRow key={service.id}>
-              <TableCell className="font-medium">{service.companyName}</TableCell>
-              <TableCell>{new Date(service.lastService).toLocaleDateString('cs-CZ')}</TableCell>
-              <TableCell>{new Date(service.nextService).toLocaleDateString('cs-CZ')}</TableCell>
-              <TableCell>{service.technician}</TableCell>
-              <TableCell className="text-right">{service.lastPayment.toLocaleString('cs-CZ')}</TableCell>
-            </TableRow>
-          ))}
+          {data.map(
+            ({customer, technicians, service}) => (
+              <TableRow key={service.id}>
+                <TableCell className="font-medium">
+                  {customer?.name ?? "Unknown"}
+                </TableCell>
+                <TableCell>
+                  {technicians.map((technician) => technician.name).join(", ")}
+                </TableCell>
+                <TableCell className="text-right">
+                  {Intl.NumberFormat("cs-CZ", {
+                    style: "currency",
+                    currency: "CZK",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(parseInt(service.lastPayment, 10))}
+                </TableCell>
+              </TableRow>
+            ),
+          )}
         </TableBody>
       </Table>
     </div>
-  )
+  );
 }
