@@ -6,7 +6,6 @@ import {
   customers as customersTable,
   technicians as techniciansTable,
   serviceTechnicians as serviceTechniciansTable,
-  technicianServiceRole,
 } from "db/schema";
 
 const techniciansByService = db
@@ -16,7 +15,7 @@ const techniciansByService = db
       {
         id: string;
         name: string;
-        role: (typeof technicianServiceRole)[number] | null;
+        role: typeof serviceTechniciansTable.role.enumValues[number];
       }[]
     >`
         JSON_AGG(
@@ -56,7 +55,8 @@ const dataQuery = db
     servicesTable,
     eq(techniciansByService.serviceId, servicesTable.id),
   )
-  .leftJoin(customersTable, eq(servicesTable.customerId, customersTable.id));
+  .leftJoin(customersTable, eq(servicesTable.customerId, customersTable.id))
+  .orderBy(servicesTable.time);
 
 export const getDashboardTableData = async () => {
   const data = await dataQuery;

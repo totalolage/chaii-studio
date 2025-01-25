@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { reset, seed } from "drizzle-seed";
 import { BatchItem } from "drizzle-orm/batch";
 
@@ -66,8 +65,6 @@ const [services, technicians] = await Promise.all([
   db.select({ id: schema.services.id }).from(schema.services),
   db.select({ id: schema.technicians.id }).from(schema.technicians),
 ]);
-
-console.log({ services, technicians });
 
 // For each service, randomly one to three technicians
 const serviceTechnicians = services.map((service) => ({
