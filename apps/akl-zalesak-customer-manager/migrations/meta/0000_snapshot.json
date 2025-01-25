@@ -1,5 +1,5 @@
 {
-  "id": "4ecbbb6c-cc92-4142-a39d-7666ac9aa0e9",
+  "id": "7042ced1-d891-4442-88bb-308934d9c709",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -96,8 +96,7 @@
         },
         "role": {
           "name": "role",
-          "type": "role",
-          "typeSchema": "public",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         }
@@ -242,19 +241,7 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {
-    "public.role": {
-      "name": "role",
-      "schema": "public",
-      "values": [
-        "lead",
-        "support",
-        "logistics",
-        "managment",
-        "training"
-      ]
-    }
-  },
+  "enums": {},
   "schemas": {},
   "sequences": {},
   "roles": {},

@@ -45,13 +45,14 @@ export const services = pgTable("services", {
 });
 
 // Technician-to-Service junction table
-export const technicianServiceRoleEnum = pgEnum("role", [
+export const technicianServiceRole = [
   "lead",
   "support",
   "logistics",
   "managment",
   "training",
-]);
+] as const;
+
 export const serviceTechnicians = pgTable(
   "service_technicians",
   {
@@ -61,7 +62,7 @@ export const serviceTechnicians = pgTable(
     technicianId: uuid("technician_id")
       .notNull()
       .references(() => technicians.id, { onDelete: "cascade" }),
-    role: technicianServiceRoleEnum(),
+    role: text("role", { enum: technicianServiceRole }),
   },
   (table) => [primaryKey({ columns: [table.serviceId, table.technicianId] })],
 );
