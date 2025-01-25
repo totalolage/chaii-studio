@@ -6,8 +6,12 @@ import { Urbanist } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import Link from "next/link";
 
-import { Providers } from "./Providers";
+import { SvgImage } from "./components/SvgImage";
+
+import LogoSvg from "~/assets/logo.svg";
+import { Providers } from "~/Providers";
 
 const sans = Urbanist({
   subsets: ["latin"],
@@ -29,6 +33,7 @@ const mono = Urbanist({
 
 export const metadata: Metadata = {
   title: "Customer Managment - AKL Zálešák",
+  icons: LogoSvg.src,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -47,6 +52,15 @@ export default function RootLayout({ children }: PropsWithChildren) {
             `}
           </style>
           <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
+            <Link href="/">
+              <SvgImage
+                src={LogoSvg}
+                alt="Logo"
+                width={60}
+                height={60}
+                className="text-primary-600"
+              />
+            </Link>
             <h1 className="font-bold">AKL Zálešák Customer Managment</h1>
             <SignedIn>
               <SignOutButton />

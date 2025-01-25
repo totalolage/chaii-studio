@@ -17,6 +17,32 @@ const config = mergeWith(
       extend: {
         colors: {
           transparent: "transparent",
+          primary: {
+            50: "#F1F9F5",
+            100: "#DCEFE5",
+            200: "#B5DEC9",
+            300: "#84C8A5",
+            400: "#4EAC7B",
+            500: "#377A57",
+            600: "#316D4E",
+            700: "#2B5F44",
+            800: "#234D37",
+            900: "#183526",
+            950: "#132A1E",
+          },
+          secondary: {
+            50: "#FFF8EB",
+            100: "#FFF1D6",
+            200: "#FFE2A9",
+            300: "#FED176",
+            400: "#FEBC35",
+            500: "#F9A601",
+            600: "#DF9501",
+            700: "#C18101",
+            800: "#986601",
+            900: "#604000",
+            950: "#241800",
+          },
         },
         fontFamily: {
           sans: ["var(--font-sans)"],

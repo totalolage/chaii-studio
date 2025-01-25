@@ -14,7 +14,13 @@
       ]
     },
     "akl-zalesak-customer-manager#build": {
-      "env": ["DATABASE_URL", "CLERK_SECRET_KEY", "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY"]
+      "env": [
+        "DATABASE_URL",
+        "CLERK_SECRET_KEY",
+        "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+        "__NEXT_PRIVATE_ORIGIN",
+        "VERCEL_URL"
+      ]
     },
     "lint": {
       "dependsOn": [
