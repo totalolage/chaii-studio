@@ -44,7 +44,10 @@ const techniciansByService = db
 
 const dataQuery = db
   .select({
-    service: servicesTable,
+    service: {
+      id: servicesTable.id,
+      date: servicesTable.time,
+    },
     technicians: techniciansByService.technicians,
     customer: {
       id: customersTable.id,
