@@ -3,7 +3,9 @@ import React from "react";
 
 import { SvgImageFromText } from "./SvgImageFromText";
 
-export const SvgImage = async (props: React.SVGProps<SVGSVGElement> & ImageProps) => {
+export const SvgImage = async (
+  props: React.SVGProps<SVGSVGElement> & ImageProps,
+) => {
   const { props: nextImageProps } = getImageProps(props);
   delete nextImageProps.style.color;
 
@@ -13,7 +15,8 @@ export const SvgImage = async (props: React.SVGProps<SVGSVGElement> & ImageProps
     await fetch(
       new URL(
         nextImageProps.src,
-        process.env["__NEXT_PRIVATE_ORIGIN"] ?? process.env["VERCEL_URL"],
+        process.env["__NEXT_PRIVATE_ORIGIN"] ??
+          `https://${process.env["VERCEL_URL"]}`,
       ),
     )
   ).text();
