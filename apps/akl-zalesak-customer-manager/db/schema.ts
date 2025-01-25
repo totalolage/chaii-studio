@@ -41,7 +41,7 @@ export const services = pgTable("services", {
     precision: 10,
     scale: 2,
   }).notNull(), // Payment amount for the service
-  time: timestamp(),
+  time: timestamp().notNull(),
 });
 
 // Technician-to-Service junction table
