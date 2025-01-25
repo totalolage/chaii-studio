@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { eq, gte, sql } from "drizzle-orm";
 
 import { db } from "db/drizzle";
 import {
@@ -38,6 +38,7 @@ const techniciansByService = db
     techniciansTable,
     eq(serviceTechniciansTable.technicianId, techniciansTable.id),
   )
+  .where(gte(servicesTable.time, new Date()))
   .groupBy(servicesTable.id)
   .as("techniciansByService");
 

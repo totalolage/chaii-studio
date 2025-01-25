@@ -27,7 +27,6 @@ export function DashboardTable({ data }: DashboardTableProps) {
             <TableHead>Company Name</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Technicians</TableHead>
-            <TableHead className="text-right">Last Payment (CZK)</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -50,14 +49,6 @@ export function DashboardTable({ data }: DashboardTableProps) {
                     role={technician.role}
                   />
                 ))}
-              </TableCell>
-              <TableCell className="text-right">
-                {Intl.NumberFormat("cs-CZ", {
-                  style: "currency",
-                  currency: "CZK",
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                }).format(parseInt(service.cost, 10))}
               </TableCell>
             </TableRow>
           ))}
