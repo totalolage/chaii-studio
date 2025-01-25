@@ -8,9 +8,10 @@ import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-import { SvgImage } from "./components/SvgImage";
-
-import LogoSvg from "~/assets/logo.svg";
+// eslint-disable-next-line import/no-duplicates
+import LogoSrc from "~/assets/logo.svg?url";
+// eslint-disable-next-line import/no-duplicates
+import Logo from "~/assets/logo.svg";
 import { Providers } from "~/Providers";
 
 const sans = Urbanist({
@@ -33,7 +34,7 @@ const mono = Urbanist({
 
 export const metadata: Metadata = {
   title: "Customer Managment - AKL Zálešák",
-  icons: LogoSvg.src,
+  icons: LogoSrc.src,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -53,13 +54,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </style>
           <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
             <Link href="/">
-              <SvgImage
-                src={LogoSvg}
-                alt="Logo"
-                width={60}
-                height={60}
-                className="text-primary-600"
-              />
+              <Logo alt="Logo" className="size-12 text-primary-600" />
             </Link>
             <h1 className="font-bold">AKL Zálešák Customer Managment</h1>
             <SignedIn>
