@@ -6,13 +6,19 @@ import {
   customers as customersTable,
   technicians as techniciansTable,
   serviceTechnicians as serviceTechniciansTable,
-  technicianServiceRoleEnum,
+  technicianServiceRole,
 } from "db/schema";
 
 const techniciansByService = db
   .select({
     serviceId: servicesTable.id,
-    technicians: sql<{ id: string; name: string; role: typeof technicianServiceRoleEnum.enumValues[number] | null }[]>`
+    technicians: sql<
+      {
+        id: string;
+        name: string;
+        role: (typeof technicianServiceRole)[number] | null;
+      }[]
+    >`
         JSON_AGG(
           JSON_OBJECT(
             ARRAY[

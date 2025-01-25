@@ -1,4 +1,3 @@
-CREATE TYPE "public"."role" AS ENUM('lead', 'support', 'logistics', 'managment', 'training');--> statement-breakpoint
 CREATE TABLE "customers" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"company_name" text NOT NULL,
@@ -15,7 +14,7 @@ CREATE TABLE "customers" (
 CREATE TABLE "service_technicians" (
 	"service_id" uuid NOT NULL,
 	"technician_id" uuid NOT NULL,
-	"role" "role",
+	"role" text,
 	CONSTRAINT "service_technicians_service_id_technician_id_pk" PRIMARY KEY("service_id","technician_id")
 );
 --> statement-breakpoint
