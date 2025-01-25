@@ -3,6 +3,8 @@ import { BatchItem } from "drizzle-orm/batch";
 
 import { db } from "./drizzle";
 import * as schema from "./schema";
+import { eq } from "drizzle-orm";
+import { normallyDistributedRandom } from "utils/normally-distributed-random";
 
 console.log("🧹 Resetting database...");
 await reset(db, schema);
@@ -50,6 +52,7 @@ await seed(db, {
         precision: 2,
       }),
       description: f.loremIpsum(),
+      time: f.timestamp(),
     },
   },
   technicians: {
@@ -87,14 +90,32 @@ const serviceTechnicians = services.map((service) => ({
   ).selectedTechnicians,
 }));
 
-await db.batch(
-  serviceTechnicians.flatMap(({ serviceId, technicians }) =>
+await db.batch([
+  // Set custom timestamps for services based on normal distribution arond now
+  ...services.map(({ id }) =>
+    db
+      .update(schema.services)
+      .set({
+        time: (() => {
+          const now = new Date();
+          const deviation = normallyDistributedRandom(0, 1000 * 60 * 60 * 24 * 7);
+          return new Date(now.getTime() + deviation);
+        })(),
+      })
+      .where(eq(schema.services.id, id)),
+  ),
+  // Apply service-technician relationships
+  ...serviceTechnicians.flatMap(({ serviceId, technicians }) =>
     technicians.map((technicianId) =>
       db.insert(schema.serviceTechnicians).values({
         serviceId,
         technicianId,
-        role: "lead",
+        role: schema.serviceTechnicians.role.enumValues[
+          Math.floor(
+            Math.random() * schema.serviceTechnicians.role.enumValues.length,
+          )
+        ],
       }),
     ),
-  ) satisfies BatchItem[] as any,
-);
+  ),
+] satisfies BatchItem[] as any);

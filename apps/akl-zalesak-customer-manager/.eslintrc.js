@@ -8,7 +8,7 @@ const eslintConfig = {
   },
   overrides: [
     {
-      files: ["!./app/**"],
+      files: ["!./{app,utils}/**"],
       rules: {
         "import/no-unused-modules": "off",
       },
