@@ -1,5 +1,5 @@
 import { cn } from "@chaii/ui/lib/utils";
-import { cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import { Calendar } from "lucide-react";
 import { isToday, isYesterday, isTomorrow } from "date-fns";
 
@@ -7,7 +7,9 @@ import type { services } from "db/schema";
 
 type ServiceDate = Pick<typeof services.$inferSelect, "time">;
 
-const getDateStatus = (date: Date) => {
+const getDateStatus = (
+  date: Date,
+): NonNullable<VariantProps<typeof statusStyles>["status"]> => {
   if (isToday(date)) return "today";
   if (isYesterday(date)) return "yesterday";
   if (isTomorrow(date)) return "tomorrow";

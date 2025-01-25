@@ -12,7 +12,6 @@ await reset(db, schema);
 
 // CD to the root of the project
 $.cwd(path.join(__dirname, ".."));
-console.log("Current directory:", (await $`pwd`).stdout.toString());
 
 console.log(
   await $`

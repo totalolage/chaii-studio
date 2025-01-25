@@ -35,7 +35,7 @@ const techniciansByService = db
     serviceTechniciansTable,
     eq(servicesTable.id, serviceTechniciansTable.serviceId),
   )
-  .leftJoin(
+  .innerJoin(
     techniciansTable,
     eq(serviceTechniciansTable.technicianId, techniciansTable.id),
   )
