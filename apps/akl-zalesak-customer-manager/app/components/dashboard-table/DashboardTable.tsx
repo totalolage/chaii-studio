@@ -9,9 +9,10 @@ import {
   TableRow,
 } from "@chaii/ui/components/table";
 
-import { TechnicianTag } from "../TechnicianTag";
+import { TechnicianTag } from "../technician-tag";
+import { ServiceDateTag } from "../service-date-tag";
 
-import { getDashboardTableData } from "./getDashboardData";
+import { getDashboardTableData } from "./get-dashboard-data";
 
 interface DashboardTableProps {
   data: Awaited<ReturnType<typeof getDashboardTableData>>;
@@ -24,8 +25,8 @@ export function DashboardTable({ data }: DashboardTableProps) {
         <TableHeader>
           <TableRow>
             <TableHead>Company Name</TableHead>
+            <TableHead>Date</TableHead>
             <TableHead>Technicians</TableHead>
-            <TableHead className="text-right">Last Payment (CZK)</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -33,6 +34,9 @@ export function DashboardTable({ data }: DashboardTableProps) {
             <TableRow key={service.id}>
               <TableCell className="font-medium">
                 {customer?.name ?? "Unknown"}
+              </TableCell>
+              <TableCell>
+                <ServiceDateTag service={service} />
               </TableCell>
               <TableCell className="flex flex-wrap gap-1">
                 {!technicians.length && (
@@ -45,14 +49,6 @@ export function DashboardTable({ data }: DashboardTableProps) {
                     role={technician.role}
                   />
                 ))}
-              </TableCell>
-              <TableCell className="text-right">
-                {Intl.NumberFormat("cs-CZ", {
-                  style: "currency",
-                  currency: "CZK",
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                }).format(parseInt(service.cost, 10))}
               </TableCell>
             </TableRow>
           ))}

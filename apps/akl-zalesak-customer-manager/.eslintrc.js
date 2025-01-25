@@ -6,15 +6,14 @@ const eslintConfig = {
   parserOptions: {
     project: true,
   },
-  rules: {
-    "import/no-unused-modules": [
-      "error",
-      {
-        src: ["./app/**", "./db/**"],
-        missingExports: true,
+  overrides: [
+    {
+      files: ["!./{app,utils}/**"],
+      rules: {
+        "import/no-unused-modules": "off",
       },
-    ],
-  },
+    },
+  ],
 };
 
 module.exports = eslintConfig;
