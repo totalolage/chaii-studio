@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "chaii:dev": "turbo dev --filter=chaii-web",
+    "azcm:dev": "turbo dev --filter=akl-zalesak-customer-manager",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.ts{x,}\"",
