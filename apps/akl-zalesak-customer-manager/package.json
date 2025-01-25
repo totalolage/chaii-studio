@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "run-p dev:*",
+    "dev": "run-p --print-label dev:*",
     "dev:db": "bunx drizzle-kit studio",
     "dev:next": "next dev",
     "build": "next build",
