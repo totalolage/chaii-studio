@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { eq, gte, sql } from "drizzle-orm";
 
 import { db } from "db/drizzle";
 import {
@@ -6,7 +6,6 @@ import {
   customers as customersTable,
   technicians as techniciansTable,
   serviceTechnicians as serviceTechniciansTable,
-  technicianServiceRole,
 } from "db/schema";
 
 const techniciansByService = db
@@ -16,7 +15,7 @@ const techniciansByService = db
       {
         id: string;
         name: string;
-        role: (typeof technicianServiceRole)[number] | null;
+        role: typeof serviceTechniciansTable.role.enumValues[number];
       }[]
     >`
         JSON_AGG(
@@ -39,6 +38,7 @@ const techniciansByService = db
     techniciansTable,
     eq(serviceTechniciansTable.technicianId, techniciansTable.id),
   )
+  .where(gte(servicesTable.time, new Date()))
   .groupBy(servicesTable.id)
   .as("techniciansByService");
 
@@ -56,7 +56,8 @@ const dataQuery = db
     servicesTable,
     eq(techniciansByService.serviceId, servicesTable.id),
   )
-  .leftJoin(customersTable, eq(servicesTable.customerId, customersTable.id));
+  .leftJoin(customersTable, eq(servicesTable.customerId, customersTable.id))
+  .orderBy(servicesTable.time);
 
 export const getDashboardTableData = async () => {
   const data = await dataQuery;

@@ -1,2 +1,2 @@
 export { DashboardTable } from "./DashboardTable";
-export { getDashboardTableData } from "./getDashboardData";
+export { getDashboardTableData } from "./get-dashboard-data";

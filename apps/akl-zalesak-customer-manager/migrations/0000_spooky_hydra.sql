@@ -23,7 +23,7 @@ CREATE TABLE "services" (
 	"customer_id" uuid NOT NULL,
 	"description" text NOT NULL,
 	"cost" numeric(10, 2) NOT NULL,
-	"time" timestamp
+	"time" timestamp NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "technicians" (

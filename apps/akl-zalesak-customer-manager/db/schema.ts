@@ -5,7 +5,6 @@ import {
   primaryKey,
   uuid,
   timestamp,
-  pgEnum,
 } from "drizzle-orm/pg-core";
 
 // Technicians table
@@ -41,18 +40,10 @@ export const services = pgTable("services", {
     precision: 10,
     scale: 2,
   }).notNull(), // Payment amount for the service
-  time: timestamp(),
+  time: timestamp().notNull(),
 });
 
 // Technician-to-Service junction table
-export const technicianServiceRole = [
-  "lead",
-  "support",
-  "logistics",
-  "managment",
-  "training",
-] as const;
-
 export const serviceTechnicians = pgTable(
   "service_technicians",
   {
@@ -62,7 +53,9 @@ export const serviceTechnicians = pgTable(
     technicianId: uuid("technician_id")
       .notNull()
       .references(() => technicians.id, { onDelete: "cascade" }),
-    role: text("role", { enum: technicianServiceRole }),
+    role: text("role", {
+      enum: ["lead", "support", "logistics", "managment", "training"],
+    }),
   },
   (table) => [primaryKey({ columns: [table.serviceId, table.technicianId] })],
 );
