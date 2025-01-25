@@ -19,9 +19,7 @@ export const TechnicianTag = ({
     )}
   >
     <User className="size-3" />
-    <span className="max-w-[150px] truncate">
-      {technician.name}
-    </span>
+    <span className="max-w-[150px] truncate">{technician.name}</span>
     {role && (
       <>
         <span className="mx-1 text-blue-400">•</span>

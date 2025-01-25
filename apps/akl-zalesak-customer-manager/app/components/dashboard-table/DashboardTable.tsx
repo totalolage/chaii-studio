@@ -35,6 +35,9 @@ export function DashboardTable({ data }: DashboardTableProps) {
                 {customer?.name ?? "Unknown"}
               </TableCell>
               <TableCell className="flex flex-wrap gap-1">
+                {!technicians.length && (
+                  <span className="text-gray-400">No technicians</span>
+                )}
                 {technicians.map((technician) => (
                   <TechnicianTag
                     key={technician.id}
