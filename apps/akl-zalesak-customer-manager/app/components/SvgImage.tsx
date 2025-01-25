@@ -1,17 +1,23 @@
-"use client";
+import fs from "fs";
+import path from "path";
 
-export const SvgImageFromText = ({
-  svgSrc,
+import { ImageProps } from "next/image";
+import React from "react";
+import { DOMParser, XMLSerializer } from "xmldom";
+
+export const SvgImage = async ({
   className,
   ...props
-}: {
-  svgSrc: string;
-} & React.SVGProps<SVGElement>) => {
+}: React.SVGProps<SVGSVGElement> & ImageProps) => {
+  const svgSrc = fs.readFileSync(
+    path.join(process.cwd(), "app/assets/logo.svg"),
+    "utf8",
+  );
+
   const parsedSvg = new DOMParser().parseFromString(svgSrc, "image/svg+xml");
 
   // Inject props into the SVG element
   const svgElement = parsedSvg.documentElement;
-  console.log(svgElement);
   Object.entries(props).forEach(([key, value]) => {
     svgElement.setAttribute(key, value as string);
   });
