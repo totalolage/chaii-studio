@@ -7,6 +7,8 @@ export const SvgImage = async (props: React.SVGProps<SVGSVGElement> & ImageProps
   const { props: nextImageProps } = getImageProps(props);
   delete nextImageProps.style.color;
 
+  console.log(process.env);
+
   const svgSrc = await (
     await fetch(
       new URL(
