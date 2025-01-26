@@ -1,7 +1,13 @@
 import { cn } from "@chaii/ui/lib/utils";
 import { User } from "lucide-react";
+import { gql } from "@apollo/client";
 
-import { serviceTechnicians, technicians } from "db/schema";
+import {
+  TechnicianTagServiceRelationFragment,
+  TechnicianTagTechnicianFragment,
+} from "./__generated__/TechnicianTag.generated";
+
+import { ServiceTechniciansRoleEnum } from "gql/__generated__/graphql";
 
 export const TechnicianTag = ({
   className,
@@ -9,8 +15,10 @@ export const TechnicianTag = ({
   role,
 }: {
   className?: string;
-  technician: Pick<typeof technicians.$inferSelect, "name">;
-  role?: (typeof serviceTechnicians.role.enumValues)[number];
+  technician:
+    | TechnicianTagServiceRelationFragment
+    | TechnicianTagTechnicianFragment;
+  role?: ServiceTechniciansRoleEnum;
 }) => (
   <div
     className={cn(
@@ -28,3 +36,21 @@ export const TechnicianTag = ({
     )}
   </div>
 );
+
+gql`
+  fragment TechnicianTagServiceRelation on ServicesTechniciansRelationTechnicianRelation {
+    id
+    name
+    email
+    phone
+  }
+`;
+
+gql`
+  fragment TechnicianTagTechnician on TechniciansSelectItem {
+    id
+    name
+    email
+    phone
+  }
+`;

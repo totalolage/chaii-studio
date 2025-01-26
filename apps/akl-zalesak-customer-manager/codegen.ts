@@ -1,20 +1,44 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
-import { printSchema } from "graphql";
-
-import { schema } from "./db/gql-schema";
+import { addTypenameSelectionDocumentTransform } from '@graphql-codegen/client-preset'
 
 const config: CodegenConfig = {
-  overwrite: true,
-  schema: printSchema(schema),
-  documents: "app/**/*{.ts,.tsx}",
+  schema: "gql/__generated__/schema.graphql",
+  documents: "app/**/!(*.generated){.ts,.tsx,.gql,graphql}",
   generates: {
-    "apollo/__generated__/": {
-      preset: "client",
+    "gql/__generated__/possibleTypes.json": {
+      plugins: ["fragment-matcher"],
+      config: {
+        useExplicitTypings: true,
+      },
+    },
+    ".": {
+      preset: "near-operation-file",
+      presetConfig: {
+        baseTypesPath: "gql/__generated__/graphql.ts",
+        folder: "__generated__/",
+        //extension: ".gql.ts",
+      },
       plugins: [
-        "typescript",
+        {
+          add: {
+            placement: "prepend",
+            content: ["// @ts-nocheck", "/* eslint-disable */"].join("\n"),
+          },
+        },
         "typescript-operations",
         "typescript-react-apollo",
       ],
+      config: {
+        immutableTypes: true,
+        dedupeFragments: true,
+        extractAllFieldsToTypes: true,
+        enumsAsTypes: true,
+        inlineFragmentTypes: "mask",
+        customDirectives: {
+          apolloUnmask: true
+        }
+      },
+      documentTransforms: [addTypenameSelectionDocumentTransform]
     },
   },
 };

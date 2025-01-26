@@ -5,9 +5,10 @@ import {
 import { HttpLink } from "@apollo/client";
 
 import { host } from "utils/host";
+import * as Schema from "gql/types";
 
 export const getClient = () =>
-  new ApolloClient({
+  new ApolloClient<typeof Schema>({
     cache: new InMemoryCache(),
     link: new HttpLink({
       uri: new URL("/api/graphql", host).toString(),

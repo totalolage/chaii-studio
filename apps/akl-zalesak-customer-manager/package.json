@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "run-p --print-name dev:*",
+    "dev": "run-p --print-label dev:*",
     "dev:db": "bunx drizzle-kit studio",
     "dev:next": "next dev",
-    "build": "run-s --print-label build:*",
+    "dev:codegen": "run-s --print-name codegen:schema codegen_watch",
+    "build": "run-s --print-name build:*",
     "build:gql": "bun run codegen",
     "build:next": "next build",
     "start": "next start",
@@ -14,7 +15,12 @@
     "typecheck": "tsc --noEmit",
     "db:seed": "bun db/seed.ts",
     "db:reset": "bun scripts/reset-db.ts",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "run-p --print-label codegen:*",
+    "codegen:schema": "bun scripts/generate-schema.ts",
+    "codegen:gql": "graphql-codegen --config codegen.ts",
+    "codegen_watch": "run-p --print-label codegen_watch:*",
+    "codegen_watch:schema": "watch 'bun run codegen:schema' db",
+    "codegen_watch:gql": "bun run codegen:gql --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.12.7",
@@ -23,8 +29,6 @@
     "@as-integrations/next": "^3.2.0",
     "@chaii/ui": "workspace:*",
     "@clerk/nextjs": "^6.9.15",
-    "@graphql-codegen/typescript": "^4.1.2",
-    "@graphql-codegen/typescript-operations": "^4.4.0",
     "@neondatabase/serverless": "^0.10.4",
     "@svgr/webpack": "^8.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
@@ -53,8 +57,14 @@
     "@chaii/config-tailwind": "workspace:*",
     "@chaii/config-typescript": "workspace:*",
     "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/client-preset": "4.5.1",
+    "@graphql-codegen/fragment-matcher": "^5.0.2",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typescript": "^4.1.2",
+    "@graphql-codegen/typescript-operations": "^4.4.0",
     "@graphql-codegen/typescript-react-apollo": "^4.3.2",
     "@next/eslint-plugin-next": "^14.1.1",
+    "@parcel/watcher": "^2.5.1",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
@@ -68,6 +78,6 @@
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "@graphql-codegen/client-preset": "4.5.1"
+    "watch": "^1.0.2"
   }
 }
