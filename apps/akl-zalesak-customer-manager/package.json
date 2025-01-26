@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "run-p --print-label dev:*",
+    "dev": "run-p --print-name dev:*",
     "dev:db": "bunx drizzle-kit studio",
     "dev:next": "next dev",
-    "build": "next build",
+    "build": "run-s --print-label build:*",
+    "build:gql": "bun run codegen",
+    "build:next": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "db:seed": "bun db/seed.ts",
-    "db:reset": "bun scripts/reset-db.ts"
+    "db:reset": "bun scripts/reset-db.ts",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.12.7",
@@ -20,6 +23,8 @@
     "@as-integrations/next": "^3.2.0",
     "@chaii/ui": "workspace:*",
     "@clerk/nextjs": "^6.9.15",
+    "@graphql-codegen/typescript": "^4.1.2",
+    "@graphql-codegen/typescript-operations": "^4.4.0",
     "@neondatabase/serverless": "^0.10.4",
     "@svgr/webpack": "^8.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
@@ -47,6 +52,8 @@
     "@chaii/config-eslint": "workspace:*",
     "@chaii/config-tailwind": "workspace:*",
     "@chaii/config-typescript": "workspace:*",
+    "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
     "@next/eslint-plugin-next": "^14.1.1",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
@@ -60,6 +67,7 @@
     "eslint-plugin-drizzle": "^0.2.3",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@graphql-codegen/client-preset": "4.5.1"
   }
 }

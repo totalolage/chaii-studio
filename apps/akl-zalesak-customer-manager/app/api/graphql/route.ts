@@ -1,10 +1,8 @@
-import { buildSchema } from "drizzle-graphql";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { ApolloServer } from "@apollo/server";
 import { NextRequest } from "next/server";
-import { db } from "db/drizzle";
 
-const { schema } = buildSchema(db);
+import schema from "apollo/schema";
 
 const server = new ApolloServer({
   schema,

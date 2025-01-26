@@ -13,4 +13,5 @@ export const getClient = () =>
       uri: new URL("/api/graphql", host).toString(),
       // fetchOptions: { cache: "no-store" },
     }),
+    dataMasking: true,
   });

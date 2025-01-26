@@ -3,7 +3,7 @@ import { z } from "zod";
 import { config } from "dotenv";
 
 config({ path: ".env.local" });
-
+config({ path: ".env" });
 
 export const env = createEnv({
   server: {
@@ -11,6 +11,7 @@ export const env = createEnv({
     CLERK_SECRET_KEY: z.string(),
     VERCEL_URL: z.string().optional(),
     __NEXT_PRIVATE_ORIGIN: z.string().optional(),
+    CODEGEN_PATH: z.string(),
   },
   client: {
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
