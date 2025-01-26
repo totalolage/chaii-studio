@@ -1,4 +1,4 @@
-//import { relations } from "drizzle-orm";
+import { relations } from "drizzle-orm";
 import {
   text,
   decimal,
@@ -15,9 +15,9 @@ export const technicians = pgTable("technicians", {
   email: text("email"), // Optional email contact
   phone: text("phone"), // Optional phone number
 });
-//export const techniciansRelations = relations(technicians, ({ many }) => ({
-//  services: many(serviceTechnicians),
-//}));
+export const techniciansRelations = relations(technicians, ({ many }) => ({
+  services: many(serviceTechnicians),
+}));
 
 // Customers (Companies) table
 export const customers = pgTable("customers", {
@@ -32,9 +32,9 @@ export const customers = pgTable("customers", {
   latitude: decimal("latitude"),
   longitude: decimal("longitude"),
 });
-//export const customersRelations = relations(customers, ({ many }) => ({
-//  services: many(services),
-//}));
+export const customersRelations = relations(customers, ({ many }) => ({
+  services: many(services),
+}));
 
 // Services table
 export const services = pgTable("services", {
@@ -49,13 +49,13 @@ export const services = pgTable("services", {
   }).notNull(), // Payment amount for the service
   time: timestamp().notNull(),
 });
-//export const servicesRelations = relations(services, ({ one, many }) => ({
-//  customer: one(customers, {
-//    fields: [services.customerId],
-//    references: [customers.id],
-//  }),
-//  technicians: many(serviceTechnicians),
-//}));
+export const servicesRelations = relations(services, ({ one, many }) => ({
+  customer: one(customers, {
+    fields: [services.customerId],
+    references: [customers.id],
+  }),
+  technicians: many(serviceTechnicians),
+}));
 
 // Technician-to-Service junction table
 export const serviceTechnicians = pgTable(
@@ -73,16 +73,16 @@ export const serviceTechnicians = pgTable(
   },
   (table) => [primaryKey({ columns: [table.serviceId, table.technicianId] })],
 );
-//export const serviceTechniciansRelations = relations(
-//  serviceTechnicians,
-//  ({ one }) => ({
-//    service: one(services, {
-//      fields: [serviceTechnicians.serviceId],
-//      references: [services.id],
-//    }),
-//    technician: one(technicians, {
-//      fields: [serviceTechnicians.technicianId],
-//      references: [technicians.id],
-//    }),
-//  }),
-//);
+export const serviceTechniciansRelations = relations(
+  serviceTechnicians,
+  ({ one }) => ({
+    service: one(services, {
+      fields: [serviceTechnicians.serviceId],
+      references: [services.id],
+    }),
+    technician: one(technicians, {
+      fields: [serviceTechnicians.technicianId],
+      references: [technicians.id],
+    }),
+  }),
+);
