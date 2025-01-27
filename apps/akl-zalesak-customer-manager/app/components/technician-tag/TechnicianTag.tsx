@@ -1,7 +1,7 @@
 import { cn } from "@chaii/ui/lib/utils";
 import { User } from "lucide-react";
 
-import { serviceTechnicians, technicians } from "db/schema";
+import { serviceTechniciansTable, techniciansTable } from "db/schema";
 
 export const TechnicianTag = ({
   className,
@@ -9,8 +9,8 @@ export const TechnicianTag = ({
   role,
 }: {
   className?: string;
-  technician: Pick<typeof technicians.$inferSelect, "name">;
-  role?: (typeof serviceTechnicians.role.enumValues)[number];
+  technician: Pick<typeof techniciansTable.$inferSelect, "name">;
+  role?: (typeof serviceTechniciansTable.role.enumValues)[number];
 }) => (
   <div
     className={cn(

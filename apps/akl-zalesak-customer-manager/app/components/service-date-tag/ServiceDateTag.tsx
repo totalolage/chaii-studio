@@ -3,9 +3,9 @@ import { cva, VariantProps } from "class-variance-authority";
 import { Calendar } from "lucide-react";
 import { isToday, isYesterday, isTomorrow } from "date-fns";
 
-import type { services } from "db/schema";
+import type { servicesTable } from "db/schema";
 
-type ServiceDate = Pick<typeof services.$inferSelect, "time">;
+type ServiceDate = Pick<typeof servicesTable.$inferSelect, "time">;
 
 const getDateStatus = (
   date: Date,

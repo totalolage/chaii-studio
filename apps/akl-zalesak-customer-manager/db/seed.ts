@@ -11,9 +11,9 @@ await reset(db, schema);
 
 console.log("🌱 Seeding database...");
 await seed(db, {
-  customers: schema.customers,
-  services: schema.services,
-  technicians: schema.technicians,
+  customers: schema.customersTable,
+  services: schema.servicesTable,
+  technicians: schema.techniciansTable,
 }).refine((f) => ({
   customers: {
     columns: {
@@ -65,8 +65,8 @@ await seed(db, {
 }));
 
 const [services, technicians] = await Promise.all([
-  db.select({ id: schema.services.id }).from(schema.services),
-  db.select({ id: schema.technicians.id }).from(schema.technicians),
+  db.select({ id: schema.servicesTable.id }).from(schema.servicesTable),
+  db.select({ id: schema.techniciansTable.id }).from(schema.techniciansTable),
 ]);
 
 // For each service, randomly one to three technicians
@@ -94,7 +94,7 @@ await db.batch([
   // Set custom timestamps for services based on normal distribution arond now
   ...services.map(({ id }) =>
     db
-      .update(schema.services)
+      .update(schema.servicesTable)
       .set({
         time: (() => {
           const now = new Date();
@@ -102,17 +102,17 @@ await db.batch([
           return new Date(now.getTime() + deviation);
         })(),
       })
-      .where(eq(schema.services.id, id)),
+      .where(eq(schema.servicesTable.id, id)),
   ),
   // Apply service-technician relationships
   ...serviceTechnicians.flatMap(({ serviceId, technicians }) =>
     technicians.map((technicianId) =>
-      db.insert(schema.serviceTechnicians).values({
+      db.insert(schema.serviceTechniciansTable).values({
         serviceId,
         technicianId,
-        role: schema.serviceTechnicians.role.enumValues[
+        role: schema.serviceTechniciansTable.role.enumValues[
           Math.floor(
-            Math.random() * schema.serviceTechnicians.role.enumValues.length,
+            Math.random() * schema.serviceTechniciansTable.role.enumValues.length,
           )
         ],
       }),

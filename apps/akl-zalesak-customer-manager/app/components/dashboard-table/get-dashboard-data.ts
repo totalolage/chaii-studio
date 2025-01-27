@@ -2,10 +2,10 @@ import { eq, gte, sql } from "drizzle-orm";
 
 import { db } from "db/drizzle";
 import {
-  services as servicesTable,
-  customers as customersTable,
-  technicians as techniciansTable,
-  serviceTechnicians as serviceTechniciansTable,
+  servicesTable,
+  customersTable,
+  techniciansTable,
+  serviceTechniciansTable,
 } from "db/schema";
 
 const techniciansByService = db
@@ -15,7 +15,7 @@ const techniciansByService = db
       {
         id: string;
         name: string;
-        role: typeof serviceTechniciansTable.role.enumValues[number];
+        role: (typeof serviceTechniciansTable.role.enumValues)[number];
       }[]
     >`
         JSON_AGG(
