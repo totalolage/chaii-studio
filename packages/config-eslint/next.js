@@ -39,6 +39,10 @@ module.exports = {
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
+    "no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", args: "after-used" },
+    ],
     "import/no-unused-modules": [
       "error",
       {
