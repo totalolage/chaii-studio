@@ -8,6 +8,8 @@ import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
 
+import { Title } from "./components/title";
+
 // eslint-disable-next-line import/no-duplicates
 import LogoSrc from "~/assets/logo.svg?url";
 // eslint-disable-next-line import/no-duplicates
@@ -56,7 +58,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <Link href="/">
               <Logo alt="Logo" className="size-12 text-primary-600" />
             </Link>
-            <h1 className="font-bold">AKL Zálešák Customer Managment</h1>
+            <Title />
             <SignedIn>
               <SignOutButton />
             </SignedIn>
