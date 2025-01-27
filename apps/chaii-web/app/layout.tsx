@@ -1,5 +1,5 @@
 import "normalize.css";
-import "@chaii/config-tailwind/globals.css";
+import "@chaii/config-tailwind/global.css";
 
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
