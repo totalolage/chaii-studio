@@ -8,6 +8,13 @@ import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
 
+import { LogOut } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@chaii/ui/components/tooltip";
+
 import { Title } from "./components/title";
 
 // eslint-disable-next-line import/no-duplicates
@@ -46,7 +53,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
       <Providers>
-        <body className="grid min-h-dvh grid-rows-[auto_1fr_auto] items-center bg-white font-medium leading-tight text-black">
+        <body className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-white font-medium leading-tight text-black">
           <style>
             {`
               #clerk-components {
@@ -54,15 +61,24 @@ export default function RootLayout({ children }: PropsWithChildren) {
               }
             `}
           </style>
+
           <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
             <Link href="/">
-              <Logo alt="Logo" className="size-12 text-primary-600" />
+              <Logo alt="Logo" className="text-primary-600 size-12" />
             </Link>
             <Title />
             <SignedIn>
-              <SignOutButton />
+              <Tooltip>
+                <TooltipTrigger>
+                  <SignOutButton>
+                    <LogOut className="size-6 text-primary-600" />
+                  </SignOutButton>
+                </TooltipTrigger>
+                <TooltipContent>Odhlásit se</TooltipContent>
+              </Tooltip>
             </SignedIn>
           </header>
+
           {children}
         </body>
       </Providers>
