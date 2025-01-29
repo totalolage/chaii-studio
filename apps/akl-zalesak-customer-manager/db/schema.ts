@@ -8,7 +8,7 @@ import {
 } from "drizzle-orm/pg-core";
 
 // Technicians table
-export const technicians = pgTable("technicians", {
+export const techniciansTable = pgTable("technicians", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: text("name").notNull(),
   email: text("email"), // Optional email contact
@@ -16,7 +16,7 @@ export const technicians = pgTable("technicians", {
 });
 
 // Customers (Companies) table
-export const customers = pgTable("customers", {
+export const customersTable = pgTable("customers", {
   id: uuid("id").primaryKey().defaultRandom(),
   companyName: text("company_name").notNull(),
   contactPerson: text("contact_person"), // Optional contact person name
@@ -30,11 +30,11 @@ export const customers = pgTable("customers", {
 });
 
 // Services table
-export const services = pgTable("services", {
+export const servicesTable = pgTable("services", {
   id: uuid("id").primaryKey().defaultRandom(),
   customerId: uuid("customer_id")
     .notNull()
-    .references(() => customers.id, { onDelete: "cascade" }),
+    .references(() => customersTable.id, { onDelete: "cascade" }),
   description: text("description").notNull(), // Service description
   cost: decimal("cost", {
     precision: 10,
@@ -44,15 +44,15 @@ export const services = pgTable("services", {
 });
 
 // Technician-to-Service junction table
-export const serviceTechnicians = pgTable(
+export const serviceTechniciansTable = pgTable(
   "service_technicians",
   {
     serviceId: uuid("service_id")
       .notNull()
-      .references(() => services.id, { onDelete: "cascade" }),
+      .references(() => servicesTable.id, { onDelete: "cascade" }),
     technicianId: uuid("technician_id")
       .notNull()
-      .references(() => technicians.id, { onDelete: "cascade" }),
+      .references(() => techniciansTable.id, { onDelete: "cascade" }),
     role: text("role", {
       enum: ["lead", "support", "logistics", "managment", "training"],
     }),
