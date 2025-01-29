@@ -4,13 +4,13 @@
   "private": true,
   "files": [
     "postcss.config.js",
-    "globals.css",
+    "global.css",
     "ui.ts",
     "next.ts",
     "base.ts"
   ],
   "exports": {
-    "./globals.css": "./globals.css",
+    "./global.css": "./global.css",
     "./postcss.config": "./postcss.config.js",
     "./tailwind.config": "./tailwind.config.ts"
   },

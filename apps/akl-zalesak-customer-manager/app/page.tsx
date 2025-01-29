@@ -3,7 +3,7 @@ import { SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-import { SetTitle } from "./components/title";
+import { SetTitle } from "~/(components)/title";
 
 export default async function HomePage() {
   const user = await auth();

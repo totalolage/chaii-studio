@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
-import { AddEntityButton } from "~/components/add-entity-button";
+import { AddEntityButton } from "~/(components)/add-entity-button";
 import {
   DashboardTable,
   getDashboardTableData,
-} from "~/components/dashboard-table";
-import { SetTitle } from "~/components/title";
+} from "~/(components)/dashboard-table";
+import { SetTitle } from "~/(components)/title";
 
 export const metadata: Metadata = {
   title: "Customer Managment - AKL Zálešák",

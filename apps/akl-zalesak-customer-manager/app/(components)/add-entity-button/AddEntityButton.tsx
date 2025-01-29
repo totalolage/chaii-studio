@@ -5,7 +5,7 @@ import {
   PopoverTrigger,
 } from "@chaii/ui/components/popover";
 import { cn } from "@chaii/ui/lib/utils";
-import { Building, PlusIcon, User } from "lucide-react";
+import { Building, PlusIcon } from "lucide-react";
 import { Route } from "next";
 import Link from "next/link";
 import { ComponentType, PropsWithChildren } from "react";
@@ -22,11 +22,8 @@ export const AddEntityButton = ({ className }: { className?: string }) => {
       </PopoverTrigger>
       <PopoverContent className="p-0">
         <menu>
-          <EntityRow link="/create/customer" Icon={Building}>
+          <EntityRow link="/customer/create" Icon={Building}>
             Create Customer
-          </EntityRow>
-          <EntityRow link="/create/technician" Icon={User}>
-            Create Technician
           </EntityRow>
         </menu>
       </PopoverContent>

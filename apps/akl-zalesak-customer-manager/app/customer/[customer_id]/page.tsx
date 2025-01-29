@@ -1,38 +1,56 @@
-import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { z } from "zod";
+import { Button } from "@chaii/ui/components/button";
+import Link from "next/link";
+import { Edit } from "lucide-react";
 
-import CustomerDetails from "./customer-details";
+import CustomerTemplate from "../customer-template";
 
-import { db } from "db/drizzle";
-import { customersTable } from "db/schema";
-import { SetTitle } from "~/components/title";
+import { getCustomerById } from "./get-customer-by-id";
+import { deleteCustomer } from "./(delete-customer)";
+
+import { DeleteButton } from "~/(components)/delete-button";
 
 export default async function CustomerPage({
   params,
 }: {
   params: Promise<{ customer_id: string }>;
 }) {
-  const { customer_id } = await params;
+  const { customer_id: customerId } = await params;
 
-  const parsedCustomerId = z.string().uuid().safeParse(customer_id);
+  const parsedCustomerId = z.string().uuid().safeParse(customerId);
   if (!parsedCustomerId.success) return notFound();
 
-  const [customerEntry] = await db
-    .select({
-      customer: customersTable,
-    })
-    .from(customersTable)
-    .where(eq(customersTable.id, customer_id));
-  if (!customerEntry) return notFound();
+  const customer = await getCustomerById(parsedCustomerId.data);
+  if (!customer) return notFound();
 
-  const { customer } = customerEntry;
   return (
-    <>
-      <SetTitle>Customer</SetTitle>
-      <main className="container mx-auto py-10">
-        <CustomerDetails customer={customer} />
-      </main>
-    </>
+    <main className="container mx-auto py-10">
+      <CustomerTemplate
+        actions={
+          <>
+            <DeleteButton
+              id={customer.id}
+              action={deleteCustomer}
+              title="Zrušit zákazníka"
+              description="Jste si jistí, že chcete zrušit tohoto zákazníka?"
+            />
+            <Link href={`/customer/${customer.id}/edit`} replace>
+              <Button variant="outline" size="icon">
+                <Edit className="size-4" />
+                <span className="sr-only">Edit</span>
+              </Button>
+            </Link>
+          </>
+        }
+        companyName={customer.companyName}
+        contactPerson={customer.contactPerson}
+        contactEmail={customer.contactEmail}
+        streetAddress={customer.streetAddress}
+        city={customer.city}
+        postCode={customer.postCode}
+        country={customer.country}
+      />
+    </main>
   );
 }

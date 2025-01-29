@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@chaii/ui/components/table";
+import Link from "next/link";
 
 import { TechnicianTag } from "../technician-tag";
 import { ServiceDateTag } from "../service-date-tag";
@@ -33,7 +34,9 @@ export function DashboardTable({ data }: DashboardTableProps) {
           {data.map(({ customer, technicians, service }) => (
             <TableRow key={service.id}>
               <TableCell className="font-medium">
-                {customer?.name ?? "Unknown"}
+                <Link href={`/customer/${customer?.id}`}>
+                  {customer?.name ?? "Unknown"}
+                </Link>
               </TableCell>
               <TableCell>
                 <ServiceDateTag service={service} />

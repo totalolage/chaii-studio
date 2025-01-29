@@ -35,7 +35,7 @@ export const Title = () => {
   return <h1 className="text-xl font-bold" ref={registerTitleContainer} />;
 };
 
-export const SetTitle = ({ children }: { children: string }) => {
+export const SetTitle = ({ children }: { children: string | string[]}) => {
   const { titleContainer } = useContext(titleContext);
   return titleContainer && createPortal(children, titleContainer);
 };

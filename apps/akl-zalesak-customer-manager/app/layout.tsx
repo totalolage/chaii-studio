@@ -7,7 +7,6 @@ import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
-
 import { LogOut } from "lucide-react";
 import {
   Tooltip,
@@ -15,7 +14,7 @@ import {
   TooltipTrigger,
 } from "@chaii/ui/components/tooltip";
 
-import { Title } from "./components/title";
+import { Title } from "./(components)/title";
 
 // eslint-disable-next-line import/no-duplicates
 import LogoSrc from "~/assets/logo.svg?url";
@@ -53,33 +52,27 @@ export default function RootLayout({ children }: PropsWithChildren) {
       className={cn(sans.variable, serif.variable, mono.variable)}
     >
       <Providers>
-        <body className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-white font-medium leading-tight text-black">
-          <style>
-            {`
-              #clerk-components {
-                display: none;
-              }
-            `}
-          </style>
+        <body className="contents">
+          <main className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-white font-medium leading-tight text-black">
+            <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
+              <Link href="/">
+                <Logo alt="Logo" className="text-primary-600 size-12" />
+              </Link>
+              <Title />
+              <SignedIn>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <SignOutButton>
+                      <LogOut className="text-primary-600 size-6" />
+                    </SignOutButton>
+                  </TooltipTrigger>
+                  <TooltipContent>Odhlásit se</TooltipContent>
+                </Tooltip>
+              </SignedIn>
+            </header>
 
-          <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
-            <Link href="/">
-              <Logo alt="Logo" className="text-primary-600 size-12" />
-            </Link>
-            <Title />
-            <SignedIn>
-              <Tooltip>
-                <TooltipTrigger>
-                  <SignOutButton>
-                    <LogOut className="size-6 text-primary-600" />
-                  </SignOutButton>
-                </TooltipTrigger>
-                <TooltipContent>Odhlásit se</TooltipContent>
-              </Tooltip>
-            </SignedIn>
-          </header>
-
-          {children}
+            {children}
+          </main>
         </body>
       </Providers>
     </html>

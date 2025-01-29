@@ -1,11 +1,10 @@
-import { SetTitle } from "~/components/title";
+import { CreateCustomerForm } from "./CreateCustomerForm";
 
 export default async function CreateCustomerPage() {
   return (
     <>
-      <SetTitle>Create Customer</SetTitle>
       <main className="container mx-auto py-10">
-        <CustomerForm />
+        <CreateCustomerForm />
       </main>
     </>
   );
