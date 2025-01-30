@@ -2,7 +2,7 @@ import "normalize.css";
 import "@chaii/config-tailwind/global.css";
 
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import { Geist_Mono, Space_Grotesk, Yrsa } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { cn } from "@chaii/ui/lib/utils";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
@@ -22,19 +22,19 @@ import LogoSrc from "~/assets/logo.svg?url";
 import Logo from "~/assets/logo.svg";
 import { Providers } from "~/Providers";
 
-const sans = Urbanist({
+const sans = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
 });
 
-const serif = Urbanist({
+const serif = Yrsa({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-serif",
 });
 
-const mono = Urbanist({
+const mono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-mono",
@@ -56,14 +56,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <main className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-white font-medium leading-tight text-black">
             <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 py-2 shadow-md">
               <Link href="/">
-                <Logo alt="Logo" className="text-primary-600 size-12" />
+                <Logo alt="Logo" className="size-12 text-primary-600" />
               </Link>
               <Title />
               <SignedIn>
                 <Tooltip>
                   <TooltipTrigger>
                     <SignOutButton>
-                      <LogOut className="text-primary-600 size-6" />
+                      <LogOut className="size-6 text-primary-600" />
                     </SignOutButton>
                   </TooltipTrigger>
                   <TooltipContent>Odhlásit se</TooltipContent>
