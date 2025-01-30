@@ -9,12 +9,12 @@ import {
   TableRow,
 } from "@chaii/ui/components/table";
 import Link from "next/link";
+import { use } from "react";
 
 import { TechnicianTag } from "../technician-tag";
 import { ServiceDateTag } from "../service-date-tag";
 
 import { getDashboardTableData } from "./get-dashboard-data";
-import { use } from "react";
 
 interface DashboardTableProps {
   data: ReturnType<typeof getDashboardTableData>;
@@ -38,7 +38,7 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
             <TableRow key={service.id}>
               <TableCell className="font-medium">
                 <Link href={`/customer/${customer?.id}`}>
-                  {customer?.name ?? "Unknown"}
+                  {customer?.companyName ?? "Unknown"}
                 </Link>
               </TableCell>
               <TableCell>

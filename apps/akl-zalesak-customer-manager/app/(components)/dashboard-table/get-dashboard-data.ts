@@ -12,29 +12,30 @@ const techniciansByService = db
   .select({
     serviceId: servicesTable.id,
     technicians: sql<
-      {
-        id: string;
-        name: string;
+      (typeof techniciansTable.$inferSelect & {
         role: (typeof serviceTechniciansTable.role.enumValues)[number];
-      }[]
+      })[]
     >`
-        JSON_AGG(
-          JSON_OBJECT(
-            ARRAY[
-              'id', ${techniciansTable.id}::text,
-              'name', ${techniciansTable.name},
-              'role', ${serviceTechniciansTable.role}::text
-            ]
+      COALESCE(
+        JSONB_AGG(
+          JSONB_BUILD_OBJECT(
+            'id', ${techniciansTable.id}::text,
+            'name', ${techniciansTable.name},
+            'email', ${techniciansTable.email},
+            'phone', ${techniciansTable.phone},
+            'role', ${serviceTechniciansTable.role}::text
           )
-        )
+        ) FILTER (WHERE ${techniciansTable.id} IS NOT NULL),
+        '[]'::jsonb
+      )
       `.as("technicians"),
   })
   .from(servicesTable)
-  .innerJoin(
+  .leftJoin(
     serviceTechniciansTable,
     eq(servicesTable.id, serviceTechniciansTable.serviceId),
   )
-  .innerJoin(
+  .leftJoin(
     techniciansTable,
     eq(serviceTechniciansTable.technicianId, techniciansTable.id),
   )
@@ -46,10 +47,7 @@ const dataQuery = db
   .select({
     service: servicesTable,
     technicians: techniciansByService.technicians,
-    customer: {
-      id: customersTable.id,
-      name: customersTable.companyName,
-    },
+    customer: customersTable,
   })
   .from(techniciansByService)
   .innerJoin(
