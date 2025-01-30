@@ -14,12 +14,15 @@ import { TechnicianTag } from "../technician-tag";
 import { ServiceDateTag } from "../service-date-tag";
 
 import { getDashboardTableData } from "./get-dashboard-data";
+import { use } from "react";
 
 interface DashboardTableProps {
-  data: Awaited<ReturnType<typeof getDashboardTableData>>;
+  data: ReturnType<typeof getDashboardTableData>;
 }
 
-export function DashboardTable({ data }: DashboardTableProps) {
+export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
+  const data = use(dataPromise);
+
   return (
     <div className="rounded-md border">
       <Table>

@@ -1,5 +1,6 @@
 import { cn } from "@chaii/ui/lib/utils";
 import { User } from "lucide-react";
+import Link from "next/link";
 
 import { serviceTechniciansTable, techniciansTable } from "db/schema";
 
@@ -9,10 +10,11 @@ export const TechnicianTag = ({
   role,
 }: {
   className?: string;
-  technician: Pick<typeof techniciansTable.$inferSelect, "name">;
+  technician: typeof techniciansTable.$inferSelect;
   role?: (typeof serviceTechniciansTable.role.enumValues)[number];
 }) => (
-  <div
+  <Link
+    href={`/technician/${technician.id}`}
     className={cn(
       "inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800",
       className,
@@ -26,5 +28,5 @@ export const TechnicianTag = ({
         <span className="text-blue-600">{role}</span>
       </>
     )}
-  </div>
+  </Link>
 );

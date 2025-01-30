@@ -10,7 +10,7 @@ import { Input } from "@chaii/ui/components/input";
 import { cn } from "@chaii/ui/lib/utils";
 import { ComponentProps } from "react";
 
-export const CustomerField = <Schema extends {}>({
+export const InputField = <Schema extends {}>({
   control,
   type,
   name,
