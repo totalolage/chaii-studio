@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { notFound } from "next/navigation";
 
-import { getTechnicianById } from "../get-technician-by-id";
+import { getTechnicianWithServices } from "../get-technician-with-services";
 
 import { EditTechnicianForm } from "./EditTechnicianForm";
 
@@ -15,7 +15,7 @@ export default async function TechnicianPage({
   const parsedTechnicianId = z.string().uuid().safeParse(technicianId);
   if (!parsedTechnicianId.success) return notFound();
 
-  const technician = await getTechnicianById(parsedTechnicianId.data);
+  const technician = await getTechnicianWithServices(parsedTechnicianId.data);
   if (!technician) return notFound();
 
   return (

@@ -6,8 +6,9 @@ import { Edit } from "lucide-react";
 
 import TechnicianTemplate from "../technician-template";
 
-import { getTechnicianById } from "./get-technician-by-id";
+
 import { deleteTechnician } from "./(delete-technician)";
+import { getTechnicianWithServices } from "./get-technician-with-services";
 
 import { DeleteButton } from "~/(components)/delete-button";
 
@@ -21,7 +22,7 @@ export default async function TechnicianPage({
   const parsedTechnicianId = z.string().uuid().safeParse(technicianId);
   if (!parsedTechnicianId.success) return notFound();
 
-  const technician = await getTechnicianById(parsedTechnicianId.data);
+  const technician = await getTechnicianWithServices(parsedTechnicianId.data);
   if (!technician) return notFound();
 
   return (

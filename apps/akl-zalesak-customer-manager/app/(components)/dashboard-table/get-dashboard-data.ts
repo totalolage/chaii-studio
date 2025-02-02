@@ -8,14 +8,15 @@ import {
   serviceTechniciansTable,
 } from "db/schema";
 
-const techniciansByService = db
-  .select({
-    serviceId: servicesTable.id,
-    technicians: sql<
-      (typeof techniciansTable.$inferSelect & {
-        role: (typeof serviceTechniciansTable.role.enumValues)[number];
-      })[]
-    >`
+const techniciansSql = sql<
+  {
+    id: typeof techniciansTable.$inferSelect.id;
+    name: typeof techniciansTable.$inferSelect.name;
+    email: typeof techniciansTable.$inferSelect.email;
+    phone: typeof techniciansTable.$inferSelect.phone;
+    role: (typeof serviceTechniciansTable.role.enumValues)[number];
+  }[]
+>`
       COALESCE(
         JSONB_AGG(
           JSONB_BUILD_OBJECT(
@@ -28,7 +29,12 @@ const techniciansByService = db
         ) FILTER (WHERE ${techniciansTable.id} IS NOT NULL),
         '[]'::jsonb
       )
-      `.as("technicians"),
+      `.as("technicians");
+
+const techniciansByService = db
+  .select({
+    serviceId: servicesTable.id,
+    technicians: techniciansSql,
   })
   .from(servicesTable)
   .leftJoin(
