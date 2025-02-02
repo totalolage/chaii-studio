@@ -9,7 +9,7 @@ import CustomerTemplate from "../customer-template";
 import { CreateCustomerSchema } from "../create/schema";
 import { UpdateCustomerSchema } from "../[customer_id]/edit/(update-customer)";
 
-import { CustomerField } from "./CustomerField";
+import { InputField } from "~/(components)/input-field";
 
 export function CustomerForm<
   Schema extends CreateCustomerSchema | UpdateCustomerSchema,
@@ -32,60 +32,53 @@ export function CustomerForm<
           error={form.formState.errors.root?.["submit"]?.message}
           actions={actions}
           companyName={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"companyName" satisfies keyof Schema as Path<Schema>}
               label="Název společnosti"
-              placeholder="ACME"
             />
           }
           contactPerson={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"contactPerson" satisfies keyof Schema as Path<Schema>}
               label="Kontaktní osoba"
-              placeholder="Jan Novák"
             />
           }
           contactEmail={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"contactEmail" satisfies keyof Schema as Path<Schema>}
               label="Email"
-              placeholder="jan.novak@example.com"
               type="email"
             />
           }
           streetAddress={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"streetAddress" satisfies keyof Schema as Path<Schema>}
               label="Ulice"
-              placeholder="Národní 2"
             />
           }
           city={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"city" satisfies keyof Schema as Path<Schema>}
               label="Město"
-              placeholder="Brno"
             />
           }
           postCode={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"postCode" satisfies keyof Schema as Path<Schema>}
               label="PSČ"
-              placeholder="123 45"
             />
           }
           country={
-            <CustomerField
+            <InputField
               control={form.control}
               name={"country" satisfies keyof Schema as Path<Schema>}
               label="Země"
-              placeholder="Česká republika"
             />
           }
         />

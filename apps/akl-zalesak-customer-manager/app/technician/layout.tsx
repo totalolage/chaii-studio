@@ -5,7 +5,7 @@ import { SetTitle } from "~/(components)/title";
 export default async function CutomerLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <SetTitle>Zákazník</SetTitle>
+      <SetTitle>Technik</SetTitle>
       {children}
     </>
   );
