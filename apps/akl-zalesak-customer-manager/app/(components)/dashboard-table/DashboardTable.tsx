@@ -13,6 +13,7 @@ import { use } from "react";
 
 import { TechnicianTag } from "../technician-tag";
 import { ServiceDateTag } from "../service-date-tag";
+import { ViewButton } from "../view-button/ViewButton";
 
 import { getDashboardTableData } from "./get-dashboard-data";
 
@@ -31,7 +32,7 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
             <TableHead>Company Name</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Technicians</TableHead>
-            <TableHead/>
+            <TableHead />
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -57,10 +58,8 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
                   />
                 ))}
               </TableCell>
-              <TableCell>
-                <Link href={`/service/${service.id}`}>
-                  <span className="text-blue-500 underline">View</span>
-                </Link>
+              <TableCell className="flex justify-end">
+                <ViewButton href={`/service/${service.id}`} />
               </TableCell>
             </TableRow>
           ))}

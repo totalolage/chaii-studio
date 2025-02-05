@@ -15,6 +15,7 @@ import { updateCustomer, updateCustomerSchema } from "./(update-customer)";
 
 import { getDefaultValuesFromZodSchema } from "utils/get-form-defaults";
 import { customersTable } from "db/schema";
+import { SubmitButton } from "~/(components)/submit-button";
 
 export const EditCustomerForm = ({
   className,
