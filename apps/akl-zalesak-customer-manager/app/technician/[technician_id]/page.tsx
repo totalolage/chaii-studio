@@ -1,8 +1,5 @@
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { Button } from "@chaii/ui/components/button";
-import Link from "next/link";
-import { Edit } from "lucide-react";
 
 import TechnicianTemplate from "../technician-template";
 
@@ -10,6 +7,7 @@ import { deleteTechnician } from "./(delete-technician)";
 import { getTechnicianWithServices } from "./get-technician-with-services";
 
 import { DeleteButton } from "~/(components)/delete-button";
+import { EditButton } from "~/(components)/edit-button";
 
 export default async function TechnicianPage({
   params,
@@ -34,12 +32,7 @@ export default async function TechnicianPage({
             title="Smazat technika"
             description="Opravdu chcete smazat tohoto technika?"
           />
-          <Link href={`/technician/${technician.id}/edit`} replace>
-            <Button variant="outline" size="icon">
-              <Edit className="size-4" />
-              <span className="sr-only">Edit</span>
-            </Button>
-          </Link>
+          <EditButton href={`/technician/${technician.id}/edit`} />
         </>
       }
       name={technician.name}

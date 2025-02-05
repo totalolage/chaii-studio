@@ -1,8 +1,5 @@
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { Button } from "@chaii/ui/components/button";
-import Link from "next/link";
-import { Edit } from "lucide-react";
 
 import CustomerTemplate from "../customer-template";
 
@@ -10,6 +7,7 @@ import { getCustomerById } from "./get-customer-by-id";
 import { deleteCustomer } from "./(delete-customer)";
 
 import { DeleteButton } from "~/(components)/delete-button";
+import { EditButton } from "~/(components)/edit-button";
 
 export default async function CustomerPage({
   params,
@@ -34,12 +32,7 @@ export default async function CustomerPage({
             title="Zrušit zákazníka"
             description="Jste si jistí, že chcete zrušit tohoto zákazníka?"
           />
-          <Link href={`/customer/${customer.id}/edit`} replace>
-            <Button variant="outline" size="icon">
-              <Edit className="size-4" />
-              <span className="sr-only">Edit</span>
-            </Button>
-          </Link>
+          <EditButton href={`/customer/${customer.id}/edit`} />
         </>
       }
       companyName={customer.companyName}
