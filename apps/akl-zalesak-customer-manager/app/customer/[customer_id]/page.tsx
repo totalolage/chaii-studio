@@ -25,32 +25,30 @@ export default async function CustomerPage({
   if (!customer) return notFound();
 
   return (
-    <main className="container mx-auto py-10">
-      <CustomerTemplate
-        actions={
-          <>
-            <DeleteButton
-              id={customer.id}
-              action={deleteCustomer}
-              title="Zrušit zákazníka"
-              description="Jste si jistí, že chcete zrušit tohoto zákazníka?"
-            />
-            <Link href={`/customer/${customer.id}/edit`} replace>
-              <Button variant="outline" size="icon">
-                <Edit className="size-4" />
-                <span className="sr-only">Edit</span>
-              </Button>
-            </Link>
-          </>
-        }
-        companyName={customer.companyName}
-        contactPerson={customer.contactPerson}
-        contactEmail={customer.contactEmail}
-        streetAddress={customer.streetAddress}
-        city={customer.city}
-        postCode={customer.postCode}
-        country={customer.country}
-      />
-    </main>
+    <CustomerTemplate
+      actions={
+        <>
+          <DeleteButton
+            id={customer.id}
+            action={deleteCustomer}
+            title="Zrušit zákazníka"
+            description="Jste si jistí, že chcete zrušit tohoto zákazníka?"
+          />
+          <Link href={`/customer/${customer.id}/edit`} replace>
+            <Button variant="outline" size="icon">
+              <Edit className="size-4" />
+              <span className="sr-only">Edit</span>
+            </Button>
+          </Link>
+        </>
+      }
+      companyName={customer.companyName}
+      contactPerson={customer.contactPerson}
+      contactEmail={customer.contactEmail}
+      streetAddress={customer.streetAddress}
+      city={customer.city}
+      postCode={customer.postCode}
+      country={customer.country}
+    />
   );
 }

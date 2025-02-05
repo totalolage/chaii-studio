@@ -15,11 +15,9 @@ export default async function DashboardPage() {
   return (
     <>
       <SetTitle>Dashboard</SetTitle>
-      <main className="container mx-auto py-10">
-        <h1 className="mb-5 text-3xl font-bold">Upcoming Services Dashboard</h1>
-        <DashboardTable data={getDashboardTableData()} />
-        <AddEntityButton className="fixed bottom-4 right-4" />
-      </main>
+      <h1 className="mb-5 text-3xl font-bold">Upcoming Services Dashboard</h1>
+      <DashboardTable data={getDashboardTableData()} />
+      <AddEntityButton className="fixed bottom-4 right-4" />
     </>
   );
 }

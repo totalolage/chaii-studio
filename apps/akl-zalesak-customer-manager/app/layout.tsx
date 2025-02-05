@@ -71,7 +71,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </SignedIn>
             </header>
 
-            {children}
+            <article className="container py-10">{children}</article>
           </main>
         </body>
       </Providers>

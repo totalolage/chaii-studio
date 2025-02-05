@@ -9,13 +9,12 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { CustomerForm } from "../../customer-form";
+import { CustomerForm } from "../../(customer-form)";
 
 import { updateCustomer, updateCustomerSchema } from "./(update-customer)";
 
 import { getDefaultValuesFromZodSchema } from "utils/get-form-defaults";
 import { customersTable } from "db/schema";
-import { SubmitButton } from "~/customer/customer-form/SubmitButton";
 
 export const EditCustomerForm = ({
   className,

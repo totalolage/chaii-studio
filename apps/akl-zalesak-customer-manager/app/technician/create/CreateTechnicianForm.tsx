@@ -3,13 +3,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { TechnicianForm } from "../technician-form";
-import { SubmitButton } from "../technician-form/SubmitButton";
+import { TechnicianForm } from "../(technician-form)";
 
 import { createTechnicianSchema, CreateTechnicianSchema } from "./schema";
 import { createTechnician } from "./action";
 
 import { getDefaultValuesFromZodSchema } from "utils/get-form-defaults";
+import { SubmitButton } from "~/(components)/submit-button";
 
 export const CreateTechnicianForm = ({ className }: { className?: string }) => {
   const form = useForm<CreateTechnicianSchema>({
@@ -23,7 +23,7 @@ export const CreateTechnicianForm = ({ className }: { className?: string }) => {
       action={form.handleSubmit((data) => createTechnician(data))}
       actions={
         <SubmitButton loading={form.formState.isSubmitting}>
-          Create
+          Vytvořit
         </SubmitButton>
       }
       className={className}

@@ -31,6 +31,7 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
             <TableHead>Company Name</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Technicians</TableHead>
+            <TableHead/>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -55,6 +56,11 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
                     role={technician.role}
                   />
                 ))}
+              </TableCell>
+              <TableCell>
+                <Link href={`/service/${service.id}`}>
+                  <span className="text-blue-500 underline">View</span>
+                </Link>
               </TableCell>
             </TableRow>
           ))}

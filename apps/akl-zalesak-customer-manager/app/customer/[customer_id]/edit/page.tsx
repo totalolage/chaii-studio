@@ -18,9 +18,5 @@ export default async function CustomerPage({
   const customer = await getCustomerById(parsedCustomerId.data);
   if (!customer) return notFound();
 
-  return (
-    <main className="container mx-auto py-10">
-      <EditCustomerForm customer={customer} />
-    </main>
-  );
+  return <EditCustomerForm customer={customer} />;
 }

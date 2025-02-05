@@ -9,13 +9,13 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { TechnicianForm } from "../../technician-form";
+import { TechnicianForm } from "../../(technician-form)";
 
 import { updateTechnician, updateTechnicianSchema } from "./(update-technician)";
 
 import { getDefaultValuesFromZodSchema } from "utils/get-form-defaults";
 import { techniciansTable } from "db/schema";
-import { SubmitButton } from "~/technician/technician-form/SubmitButton";
+import { SubmitButton } from "~/(components)/submit-button";
 
 export const EditTechnicianForm = ({
   className,

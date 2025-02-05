@@ -6,7 +6,6 @@ import { Edit } from "lucide-react";
 
 import TechnicianTemplate from "../technician-template";
 
-
 import { deleteTechnician } from "./(delete-technician)";
 import { getTechnicianWithServices } from "./get-technician-with-services";
 
@@ -26,28 +25,26 @@ export default async function TechnicianPage({
   if (!technician) return notFound();
 
   return (
-    <main className="container mx-auto py-10">
-      <TechnicianTemplate
-        actions={
-          <>
-            <DeleteButton
-              id={technician.id}
-              action={deleteTechnician}
-              title="Smazat technika"
-              description="Opravdu chcete smazat tohoto technika?"
-            />
-            <Link href={`/technician/${technician.id}/edit`} replace>
-              <Button variant="outline" size="icon">
-                <Edit className="size-4" />
-                <span className="sr-only">Edit</span>
-              </Button>
-            </Link>
-          </>
-        }
-        name={technician.name}
-        email={technician.email}
-        phone={technician.phone}
-      />
-    </main>
+    <TechnicianTemplate
+      actions={
+        <>
+          <DeleteButton
+            id={technician.id}
+            action={deleteTechnician}
+            title="Smazat technika"
+            description="Opravdu chcete smazat tohoto technika?"
+          />
+          <Link href={`/technician/${technician.id}/edit`} replace>
+            <Button variant="outline" size="icon">
+              <Edit className="size-4" />
+              <span className="sr-only">Edit</span>
+            </Button>
+          </Link>
+        </>
+      }
+      name={technician.name}
+      email={technician.email}
+      phone={technician.phone}
+    />
   );
 }

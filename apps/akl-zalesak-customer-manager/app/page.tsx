@@ -12,12 +12,10 @@ export default async function HomePage() {
   return (
     <>
       <SetTitle>AKL Zálešák Customer Managment</SetTitle>
-      <main>
-        <h2>Je třeba se </h2>
-        <SignInButton forceRedirectUrl="/dashboard">
-          <Button className="text-xl uppercase">přihlásit</Button>
-        </SignInButton>
-      </main>
+      <h2>Je třeba se </h2>
+      <SignInButton forceRedirectUrl="/dashboard">
+        <Button className="text-xl uppercase">přihlásit</Button>
+      </SignInButton>
     </>
   );
 }

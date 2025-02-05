@@ -18,9 +18,5 @@ export default async function TechnicianPage({
   const technician = await getTechnicianWithServices(parsedTechnicianId.data);
   if (!technician) return notFound();
 
-  return (
-    <main className="container mx-auto py-10">
-      <EditTechnicianForm technician={technician} />
-    </main>
-  );
+  return <EditTechnicianForm technician={technician} />;
 }
