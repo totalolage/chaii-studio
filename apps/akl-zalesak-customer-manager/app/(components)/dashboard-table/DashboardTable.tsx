@@ -58,8 +58,10 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
                   />
                 ))}
               </TableCell>
-              <TableCell className="flex justify-end">
-                <ViewButton href={`/service/${service.id}`} />
+              <TableCell>
+                <div className="flex justify-end">
+                  <ViewButton href={`/service/${service.id}`} />
+                </div>
               </TableCell>
             </TableRow>
           ))}

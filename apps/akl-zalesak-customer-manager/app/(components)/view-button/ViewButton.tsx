@@ -12,7 +12,7 @@ export const ViewButton = ({
   href: Route;
   className?: string;
 }) => (
-  <Link className={className} href={href} replace>
+  <Link className={className} href={href}>
     <Button variant="ghost" size="icon" {...props}>
       <ChevronRight className="size-4" />
       <span className="sr-only">Zobrazit</span>
