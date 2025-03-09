@@ -1,6 +1,6 @@
 import tailwindConfig from "@chaii/config-tailwind/tailwind.config";
-import { Config } from "tailwindcss";
 import { mergeWith } from "lodash/fp";
+import { Config } from "tailwindcss";
 
 const config = mergeWith(
   (lhs, rhs, key) => {
@@ -9,7 +9,7 @@ const config = mergeWith(
   },
   tailwindConfig,
   {
-    content: ["./app/**/*.{ts,tsx}"],
+    content: ["./src/**/*.{t,{m,c,}j}sx"],
     theme: {
       screens: {
         sm: "600px",

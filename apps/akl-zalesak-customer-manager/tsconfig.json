@@ -6,9 +6,9 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./*"]
     }
   },
   "include": [
