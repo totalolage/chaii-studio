@@ -1,14 +1,14 @@
 import {
-  text,
   decimal,
   pgTable,
   primaryKey,
-  uuid,
+  text,
   timestamp,
+  uuid,
 } from "drizzle-orm/pg-core";
 
 // Technicians table
-export const techniciansTable = pgTable("technicians", {
+const techniciansTable = pgTable("technicians", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: text("name").notNull(),
   email: text("email"), // Optional email contact
@@ -16,7 +16,7 @@ export const techniciansTable = pgTable("technicians", {
 });
 
 // Customers (Companies) table
-export const customersTable = pgTable("customers", {
+const customersTable = pgTable("customers", {
   id: uuid("id").primaryKey().defaultRandom(),
   companyName: text("company_name").notNull(),
   contactPerson: text("contact_person"), // Optional contact person name
@@ -30,7 +30,7 @@ export const customersTable = pgTable("customers", {
 });
 
 // Services table
-export const servicesTable = pgTable("services", {
+const servicesTable = pgTable("services", {
   id: uuid("id").primaryKey().defaultRandom(),
   customerId: uuid("customer_id")
     .notNull()
@@ -44,7 +44,7 @@ export const servicesTable = pgTable("services", {
 });
 
 // Technician-to-Service junction table
-export const serviceTechniciansTable = pgTable(
+const serviceTechniciansTable = pgTable(
   "service_technicians",
   {
     serviceId: uuid("service_id")
@@ -59,3 +59,5 @@ export const serviceTechniciansTable = pgTable(
   },
   (table) => [primaryKey({ columns: [table.serviceId, table.technicianId] })],
 );
+
+export default { customersTable, servicesTable, serviceTechniciansTable, techniciansTable };

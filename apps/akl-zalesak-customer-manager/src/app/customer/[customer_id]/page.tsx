@@ -1,15 +1,13 @@
+import { Button } from "@chaii/ui/components/button";
+import { Edit } from "lucide-react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { Button } from "@chaii/ui/components/button";
-import Link from "next/link";
-import { Edit } from "lucide-react";
 
-import CustomerTemplate from "../customer-template";
-
-import { getCustomerById } from "./get-customer-by-id";
-import { deleteCustomer } from "./(delete-customer)";
-
-import { DeleteButton } from "~/(components)/delete-button";
+import { DeleteButton } from "~/components/DeleteButton";
+import { deleteCustomer } from "~/features/customers/actions";
+import { CustomerTemplate } from "~/features/customers/components";
+import { getCustomerById } from "~/features/customers/utils";
 
 export default async function CustomerPage({
   params,

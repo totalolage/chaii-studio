@@ -1,9 +1,8 @@
-import { z } from "zod";
 import { notFound } from "next/navigation";
+import { z } from "zod";
 
-import { getTechnicianWithServices } from "../get-technician-with-services";
-
-import { EditTechnicianForm } from "./EditTechnicianForm";
+import { EditTechnicianForm } from "~/features/technician/components";
+import { getTechnicianWithServices } from "~/features/technician/utils";
 
 export default async function TechnicianPage({
   params,

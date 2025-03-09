@@ -1,1 +1,0 @@
-export { TechnicianTag } from './TechnicianTag';

@@ -1,10 +1,10 @@
-import { drizzle } from "drizzle-orm/neon-http";
 import { neon, neonConfig } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
 import ws from "ws";
 
-import * as schema from "./schema";
+import schema from "./schema";
 
-import { env } from "env";
+import { env } from "~/env";
 
 neonConfig.webSocketConstructor = ws;
 neonConfig.poolQueryViaFetch = true;

@@ -1,2 +1,0 @@
-export { TechnicianForm } from "./TechnicianForm";
-

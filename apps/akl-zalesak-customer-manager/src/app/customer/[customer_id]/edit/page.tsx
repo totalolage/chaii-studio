@@ -1,9 +1,8 @@
-import { z } from "zod";
 import { notFound } from "next/navigation";
+import { z } from "zod";
 
-import { getCustomerById } from "../get-customer-by-id";
-
-import { EditCustomerForm } from "./EditCustomerForm";
+import { EditCustomerForm } from "~/features/customers/components";
+import { getCustomerById } from "~/features/customers/utils";
 
 export default async function CustomerPage({
   params,

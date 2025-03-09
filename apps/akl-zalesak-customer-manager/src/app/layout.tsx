@@ -1,26 +1,25 @@
 import "normalize.css";
 import "@chaii/config-tailwind/global.css";
 
-import type { Metadata } from "next";
-import { Geist_Mono, Space_Grotesk, Yrsa } from "next/font/google";
-import { PropsWithChildren } from "react";
-import { cn } from "@chaii/ui/lib/utils";
-import { SignedIn, SignOutButton } from "@clerk/nextjs";
-import Link from "next/link";
-import { LogOut } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@chaii/ui/components/tooltip";
+import { cn } from "@chaii/ui/lib/utils";
+import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import { LogOut } from "lucide-react";
+import type { Metadata } from "next";
+import { Geist_Mono, Space_Grotesk, Yrsa } from "next/font/google";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
 
-import { Title } from "./(components)/title";
-
-// eslint-disable-next-line import/no-duplicates
-import LogoSrc from "~/assets/logo.svg?url";
 // eslint-disable-next-line import/no-duplicates
 import Logo from "~/assets/logo.svg";
-import { Providers } from "~/Providers";
+// eslint-disable-next-line import/no-duplicates
+import LogoSrc from "~/assets/logo.svg?url";
+import { Providers } from "~/components/Providers";
+import { Title } from "~/components/Title";
 
 const sans = Space_Grotesk({
   subsets: ["latin"],

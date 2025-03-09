@@ -1,16 +1,13 @@
+import { Button } from "@chaii/ui/components/button";
+import { Edit } from "lucide-react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { z } from "zod";
-import { Button } from "@chaii/ui/components/button";
-import Link from "next/link";
-import { Edit } from "lucide-react";
 
-import TechnicianTemplate from "../technician-template";
-
-
-import { deleteTechnician } from "./(delete-technician)";
-import { getTechnicianWithServices } from "./get-technician-with-services";
-
-import { DeleteButton } from "~/(components)/delete-button";
+import { DeleteButton } from "~/components/DeleteButton";
+import { deleteTechnician } from "~/features/technician/actions";
+import { TechnicianTemplate } from "~/features/technician/components";
+import { getTechnicianWithServices } from "~/features/technician/utils";
 
 export default async function TechnicianPage({
   params,

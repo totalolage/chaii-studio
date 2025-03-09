@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unused-modules */
 import path from "path";
 
-import { reset } from "drizzle-seed";
 import { $ } from "bun";
+import { reset } from "drizzle-seed";
 
-import { db } from "../db/drizzle";
-import * as schema from "../db/schema";
+import { db } from "~/db/drizzle";
+// eslint-disable-next-line import/no-namespace
+import * as schema from "~/db/schema";
 
 console.log("🧹 Resetting database...");
 await reset(db, schema);

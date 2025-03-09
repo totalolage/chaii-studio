@@ -1,4 +1,4 @@
-import { CreateCustomerForm } from "./CreateCustomerForm";
+import { CreateCustomerForm } from "~/features/customers/components";
 
 export default async function CreateCustomerPage() {
   return (

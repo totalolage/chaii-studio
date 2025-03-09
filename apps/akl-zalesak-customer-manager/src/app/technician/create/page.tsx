@@ -1,4 +1,4 @@
-import { CreateTechnicianForm } from "./CreateTechnicianForm";
+import { CreateTechnicianForm } from "~/features/technician/components";
 
 export default async function CreateTechnicianPage() {
   return (

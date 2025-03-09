@@ -1,10 +1,12 @@
-import { reset, seed } from "drizzle-seed";
+import { eq } from "drizzle-orm";
 import { BatchItem } from "drizzle-orm/batch";
+import { reset, seed } from "drizzle-seed";
 
 import { db } from "./drizzle";
-import * as schema from "./schema";
-import { eq } from "drizzle-orm";
-import { normallyDistributedRandom } from "utils/normally-distributed-random";
+import schema from "./schema";
+
+import { normallyDistributedRandom } from "~/utils";
+
 
 console.log("🧹 Resetting database...");
 await reset(db, schema);
