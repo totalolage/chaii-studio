@@ -13,7 +13,6 @@ import { use } from "react";
 
 import { TechnicianTag } from "../technician-tag";
 import { ServiceDateTag } from "../service-date-tag";
-import { ViewButton } from "../view-button/ViewButton";
 
 import { getDashboardTableData } from "./get-dashboard-data";
 
@@ -32,7 +31,6 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
             <TableHead>Company Name</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Technicians</TableHead>
-            <TableHead />
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -44,7 +42,9 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
                 </Link>
               </TableCell>
               <TableCell>
+                <Link href={`/service/${service.id}`}>
                 <ServiceDateTag service={service} />
+                </Link>
               </TableCell>
               <TableCell className="flex flex-wrap gap-1">
                 {!technicians.length && (
@@ -57,11 +57,6 @@ export function DashboardTable({ data: dataPromise }: DashboardTableProps) {
                     role={technician.role}
                   />
                 ))}
-              </TableCell>
-              <TableCell>
-                <div className="flex justify-end">
-                  <ViewButton href={`/service/${service.id}`} />
-                </div>
               </TableCell>
             </TableRow>
           ))}
